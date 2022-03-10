@@ -7,10 +7,9 @@
     padding: 20px;
 
     border-radius: 15px;
-
 }
 
-.cardBottom {
-    height: 100px;
-    display: flex;
+.bottomCard {
+    margin-top: 50px;
+    display: flex
 }
