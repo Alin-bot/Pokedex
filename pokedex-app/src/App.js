@@ -13,13 +13,15 @@ function App() {
   const [clientInput, setClientInput] = useState('');
 
   function displayPokemonList() {
-    const id = "11";
+
+    let itemList = [];
+    for(let i = 0; i < 3; i++) {
+      itemList.push(<Card pokemonData = {data} id = {i}/>)
+    }
 
     return(
       <div class = "cards">
-        <Card pokemonData = {data} id = {0}/>
-        <Card pokemonData = {data} id = {1}/>
-        <Card pokemonData = {data} id = {2}/>
+        {itemList}
       </div>
     );
   }
