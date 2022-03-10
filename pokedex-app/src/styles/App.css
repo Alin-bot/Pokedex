@@ -3,8 +3,14 @@
 
   padding-top: 1%;
   padding-left: 24%;
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+.cardsRow {
+  display: flex;
 }
 
 .cards {
-  display: flex;
+  display: block;
 }

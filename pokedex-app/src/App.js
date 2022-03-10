@@ -14,9 +14,19 @@ function App() {
 
   function displayPokemonList() {
 
+    const rows = 12;
+    
     let itemList = [];
-    for(let i = 0; i < 3; i++) {
-      itemList.push(<Card pokemonData = {data} id = {i}/>)
+    for(let i = 0; i < rows; i += 3){
+
+      itemList.push(
+        <div class = "cardsRow">
+          <Card pokemonData = {data} id = {i}/>
+          <Card pokemonData = {data} id = {i+1}/>
+          <Card pokemonData = {data} id = {i+2}/>
+        </div>
+      )
+
     }
 
     return(
