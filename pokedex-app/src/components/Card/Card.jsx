@@ -21,12 +21,12 @@ function Prop({ pokemonData, id, number }) {
     let prop = pokemonData[id].types[number].type.name;
     prop = prop.charAt(0).toUpperCase() + prop.slice(1);
 
-    let color = "rgba(255, 255, 255, 0.5)"
+    let color = "rgba(0, 0, 0, 0.2)"
     if(number === "1") {
         if(pokemonData[id].types[number].type.name === "poison") {
             color = "purple"
         } else if(pokemonData[id].types[number].type.name === "flying") {
-            color = "rgb(180, 150, 216)"
+            color = "rgba(255, 255, 255, 0.4)"
         }
     }
 

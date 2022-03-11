@@ -7,6 +7,7 @@ function Searchbar({ value, setValue }) {
             placeholder = "Search pokemon name, number or type..."
             className = "searchBox"
             value={value}
+            onChange={(event) => setValue(event.target.value)}
         />
     );
 }
