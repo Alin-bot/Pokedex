@@ -14,19 +14,13 @@ function App() {
 
   function displayPokemonList() {
 
-    const rows = 12;
+    const numberOfCards = data.length;
     
     let itemList = [];
-    for(let i = 0; i < rows; i += 3){
-
+    for(let i = 0; i < numberOfCards; i++){
       itemList.push(
-        <div class = "cardsRow">
-          <Card pokemonData = {data} id = {i}/>
-          <Card pokemonData = {data} id = {i+1}/>
-          <Card pokemonData = {data} id = {i+2}/>
-        </div>
+        <Card pokemonData = {data} id = {i}/>
       )
-
     }
 
     return(
@@ -39,10 +33,11 @@ function App() {
   return (
     <div className="App">
       <Title>Pokedex</Title>
+
       <SearchBar value={clientInput} setValue={setClientInput}/>
+      
       {displayPokemonList()}
     </div>
-    
   );
 }
 

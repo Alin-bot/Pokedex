@@ -7,10 +7,8 @@
   padding-bottom: 50px;
 }
 
-.cardsRow {
-  display: flex;
-}
-
 .cards {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 10%;
 }
