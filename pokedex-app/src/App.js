@@ -11,16 +11,29 @@ import data from './resources/data.json'
 function App() {
 
   const [clientInput, setClientInput] = useState('');
+  
+  function isIncludedInClientInput(str) {
+    return str.toUpperCase().includes(clientInput.toUpperCase());
+  }
 
   function displayPokemonList() {
 
     const numberOfCards = data.length;
-    
+
     let itemList = [];
     for(let i = 0; i < numberOfCards; i++){
-      itemList.push(
-        <Card pokemonData = {data} id = {i}/>
-      )
+
+      if(isIncludedInClientInput(data[i].name) || isIncludedInClientInput(data[i].types[0].type.name) || isIncludedInClientInput(String(data[i].id))) {
+
+        itemList.push(
+          <Card pokemonData = {data} id = {i}/>
+        )
+      } else if(data[i].types.length == 2 && isIncludedInClientInput(data[i].types[1].type.name)) {
+
+        itemList.push(
+          <Card pokemonData = {data} id = {i}/>
+        )
+      }
     }
 
     return(
