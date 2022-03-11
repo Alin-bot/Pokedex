@@ -1,7 +1,7 @@
-import './styles/App.css';
+import './App.css';
 
-import Title from './components/Title';
-import SearchBar from './components/SearchBar';
+import Title from './components/TItle/Title';
+import SearchBar from './components/SearchBar/SearchBar';
 import Card from './components/Card/Card';
 
 import {useState} from 'react';

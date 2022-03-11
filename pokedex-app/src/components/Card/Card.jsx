@@ -1,9 +1,73 @@
 import React from 'react';
-import CardTitle from './CardTitle/CardTitle';
-import CardProps from './CardBottom/CardProps';
-import CardImg from './CardBottom/CardImg'
 
-import '../../styles/Card/Card.css';
+import './Card.css';
+
+function CardTitle({ pokemonData, id }) {
+    let name = pokemonData[id].name;
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+
+    let newId = pokemonData[id].id;
+    if(newId < 10) {
+        newId = "00" + newId;
+    } else if(newId < 100) {
+        newId = "0" + newId;
+    }
+    newId = "#" + newId;
+    
+    return(
+        <div class = "cardTitle">
+            <div>{ name }</div>
+            <div class = "id">{ newId }</div>
+        </div>
+    )
+}
+
+function Prop({ pokemonData, id, number }) {
+    let prop = pokemonData[id].types[number].type.name;
+    prop = prop.charAt(0).toUpperCase() + prop.slice(1);
+
+    let color = "rgba(255, 255, 255, 0.5)"
+    if(number === "1") {
+        if(pokemonData[id].types[number].type.name === "poison") {
+            color = "purple"
+        } else if(pokemonData[id].types[number].type.name === "flying") {
+            color = "rgb(180, 150, 216)"
+        }
+    }
+
+    return(
+        <div style = {{"background-color": color}} class = "prop">
+            { prop }
+        </div>
+    )
+}
+
+function CardProps({ pokemonData, id }) {
+
+    if(pokemonData[id].types.length === 2) {
+        return(
+            <div class = "cardProps">
+                <Prop pokemonData = {pokemonData} id = {id} number = "0"/>
+                <Prop pokemonData = {pokemonData} id = {id} number = "1"/>
+            </div>
+        )
+    } else {
+        return(
+            <div class = "cardProps">
+                <Prop pokemonData = {pokemonData} id = {id} number = "0"/>
+            </div>
+        )
+    }
+
+}
+
+function CardImg({ pokemonData, id }) {
+    return(
+        <div class = "cardImg">
+            <img class = "Img" src = {pokemonData[id].sprites.other.official_artwork.front_default}/>
+        </div>
+    )
+}
 
 function Card({ pokemonData, id }) {
 

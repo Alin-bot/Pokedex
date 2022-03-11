@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/SearchBar.css';
+import './SearchBar.css';
 
 function Searchbar({ value, setValue }) {
     return (
