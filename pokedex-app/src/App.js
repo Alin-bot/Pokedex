@@ -24,7 +24,7 @@ function App() {
     }
 
     return(
-      <div class = "cards">
+      <div className = "cards">
         {itemList}
       </div>
     );

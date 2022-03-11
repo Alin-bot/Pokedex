@@ -15,9 +15,9 @@ function CardTitle({ pokemonData, id }) {
     newId = "#" + newId;
     
     return(
-        <div class = "cardTitle">
+        <div className = "cardTitle">
             <div>{ name }</div>
-            <div class = "id">{ newId }</div>
+            <div className = "id">{ newId }</div>
         </div>
     )
 }
@@ -36,7 +36,7 @@ function Prop({ pokemonData, id, number }) {
     }
 
     return(
-        <div style = {{"background-color": color}} class = "prop">
+        <div style = {{"background-color": color}} className = "prop">
             { prop }
         </div>
     )
@@ -46,14 +46,14 @@ function CardProps({ pokemonData, id }) {
 
     if(pokemonData[id].types.length === 2) {
         return(
-            <div class = "cardProps">
+            <div className = "cardProps">
                 <Prop pokemonData = {pokemonData} id = {id} number = "0"/>
                 <Prop pokemonData = {pokemonData} id = {id} number = "1"/>
             </div>
         )
     } else {
         return(
-            <div class = "cardProps">
+            <div className = "cardProps">
                 <Prop pokemonData = {pokemonData} id = {id} number = "0"/>
             </div>
         )
@@ -63,8 +63,8 @@ function CardProps({ pokemonData, id }) {
 
 function CardImg({ pokemonData, id }) {
     return(
-        <div class = "cardImg">
-            <img class = "Img" src = {pokemonData[id].sprites.other.official_artwork.front_default}/>
+        <div className = "cardImg">
+            <img className = "Img" src = {pokemonData[id].sprites.other.official_artwork.front_default}/>
         </div>
     )
 }
@@ -90,10 +90,10 @@ function Card({ pokemonData, id }) {
     } 
 
     return (
-        <div style = {{"background-color": color}} class = "cardBox">
+        <div style = {{"background-color": color}} className = "cardBox">
             <CardTitle pokemonData = {pokemonData} id = {id} />
 
-            <div class = "bottomCard">
+            <div className = "bottomCard">
                 <CardProps pokemonData = {pokemonData} id = {id} />
 
                 <CardImg pokemonData = {pokemonData} id = {id} />
