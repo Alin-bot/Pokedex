@@ -6,18 +6,13 @@ function CardTitle({ pokemonData, id }) {
     let name = pokemonData[id].name;
     name = name.charAt(0).toUpperCase() + name.slice(1);
 
-    let newId = pokemonData[id].id;
-    if(newId < 10) {
-        newId = "00" + newId;
-    } else if(newId < 100) {
-        newId = "0" + newId;
-    }
-    newId = "#" + newId;
+    let pokemonId = String(pokemonData[id].id);
+    pokemonId = '#'  + pokemonId.padStart(3, '0');
     
     return(
         <div className = "cardTitle">
             <div>{ name }</div>
-            <div className = "id">{ newId }</div>
+            <div className = "id">{ pokemonId }</div>
         </div>
     )
 }
