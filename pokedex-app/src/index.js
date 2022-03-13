@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import Pokemon from "./pages/pokemon_description/Pokemon";
+import ErrorPage from "./pages/404/ErrorPage";
+import Home from "./pages/home/Home";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/:error" element={<ErrorPage />} />
+        <Route path="/home/pokemon" element={<Pokemon />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
