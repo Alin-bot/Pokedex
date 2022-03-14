@@ -10,9 +10,9 @@ function CardTitle({ pokemonData, id }) {
     pokemonId = '#'  + pokemonId.padStart(3, '0');
     
     return(
-        <div className = "cardTitle">
+        <div className = "card-title">
             <div>{ name }</div>
-            <div className = "id">{ pokemonId }</div>
+            <div className = "card-title-id">{ pokemonId }</div>
         </div>
     )
 }
@@ -31,7 +31,7 @@ function Prop({ pokemonData, id, number }) {
     }
 
     return(
-        <div style = {{"background-color": color}} className = "prop">
+        <div style = {{"background-color": color}} className = "card-props-prop">
             { prop }
         </div>
     )
@@ -41,14 +41,14 @@ function CardProps({ pokemonData, id }) {
 
     if(pokemonData[id].types.length === 2) {
         return(
-            <div className = "cardProps">
+            <div>
                 <Prop pokemonData = {pokemonData} id = {id} number = "0"/>
                 <Prop pokemonData = {pokemonData} id = {id} number = "1"/>
             </div>
         )
     } else {
         return(
-            <div className = "cardProps">
+            <div>
                 <Prop pokemonData = {pokemonData} id = {id} number = "0"/>
             </div>
         )
@@ -58,8 +58,8 @@ function CardProps({ pokemonData, id }) {
 
 function CardImg({ pokemonData, id }) {
     return(
-        <div className = "cardImg">
-            <img className = "Img" src = {pokemonData[id].sprites.other.official_artwork.front_default}/>
+        <div className = "card-imgs">
+            <img className = "card-imgs-img" src = {pokemonData[id].sprites.other.official_artwork.front_default}/>
         </div>
     )
 }
@@ -85,10 +85,10 @@ function Card({ pokemonData, id }) {
     } 
 
     return (
-        <div style = {{"background-color": color}} className = "cardBox">
+        <div style = {{"background-color": color}} className = "card">
             <CardTitle pokemonData = {pokemonData} id = {id} />
 
-            <div className = "bottomCard">
+            <div className = "card-bottom">
                 <CardProps pokemonData = {pokemonData} id = {id} />
 
                 <CardImg pokemonData = {pokemonData} id = {id} />

@@ -44,7 +44,7 @@ function Home() {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       <Title>Pokedex</Title>
 
       <SearchBar value={clientInput} setValue={setClientInput}/>

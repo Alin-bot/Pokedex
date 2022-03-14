@@ -1,4 +1,4 @@
-.cardTitle {
+.card-title {
     color: white;
 
     width: 100%;
@@ -7,15 +7,12 @@
     display: flex;
 }
 
-.id {
+.card-title-id {
     margin-left: auto;
 }
 
-.cardProps {
+.card-props-prop {
     color: white;
-}
-
-.prop {
     margin-top: 10px;
     border-radius: 10px;
     padding: 10px;
@@ -25,18 +22,18 @@
 
 }
 
-.cardImg {
+.card-imgs {
     text-align: right;
     margin-left: 40px;
     margin-top: -10px
 }
 
-.Img {
+.card-imgs-img {
     width: 120px;
     height: auto;
 }
 
-.cardBox {
+.card {
     width: 250px;
     height: 150px;
 
@@ -47,7 +44,7 @@
     border-radius: 15px;
 }
 
-.bottomCard {
+.card-bottom {
     margin-top: 50px;
     display: flex
 }
