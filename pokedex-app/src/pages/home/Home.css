@@ -1,14 +1,14 @@
 .app {
-    background-color: #FFF7E8;
-  
-    padding-top: 1%;
-    padding-left: 24%;
-    padding-right: 140px;
-    height: 100%;
-    padding-bottom: 50px;
-  }
-  
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  background-color: #FFF7E8;
+
+  padding-top: 1%;
+  padding-left: 24%;
+  padding-right: 140px;
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}

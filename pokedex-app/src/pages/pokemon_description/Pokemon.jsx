@@ -1,20 +1,22 @@
 import './Pokemon.css';
 import ErrorPage from '../ErrorPage/ErrorPage'
+import Title from '../../components/TItle/Title';
 
 import { useParams } from 'react-router-dom'
 
 function Pokemon() {
 
-  const { pokemonId } = useParams();
+  const { id } = useParams();
 
-  if (pokemonId < 1 || pokemonId > 999 || isNaN(pokemonId)) {
-    console.log(pokemonId)
+  if (id < 0 || id > 999 || isNaN(id)) {
     return <ErrorPage/>
   } 
 
   return (
-    <div >
-      Pokemon description page..
+    <div className = "pokemon-details">
+      <Title>Pokedex</Title>
+
+      Pokemon description page.. {id}
     </div>
   );
 }

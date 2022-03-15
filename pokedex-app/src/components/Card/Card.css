@@ -42,6 +42,12 @@
     padding: 20px;
 
     border-radius: 15px;
+
+    text-decoration: none;
+}
+
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.253);
 }
 
 .card-bottom {

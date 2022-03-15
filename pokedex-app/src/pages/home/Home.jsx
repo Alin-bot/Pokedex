@@ -5,7 +5,6 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import Card from '../../components/Card/Card';
 
 import {useState} from 'react';
-import {Link} from 'react-router-dom'
 
 import data from '../../resources/data.json'
 
@@ -27,11 +26,7 @@ function Home() {
       if(isIncludedInClientInput(data[i].name) || isIncludedInClientInput(data[i].types[0].type.name) || isIncludedInClientInput(String(data[i].id))) {
 
         itemList.push(
-          <Card pokemonData = {data} id = {i}>
-            <Link to={`/pokemon/${i}`} id={i}>
-
-            </Link>
-          </Card>
+          <Card pokemonData = {data} id = {i}/>
         )
       } else if(data[i].types.length === 2 && isIncludedInClientInput(data[i].types[1].type.name)) {
 

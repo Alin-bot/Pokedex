@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 import './Card.css';
 
@@ -82,10 +83,10 @@ function Card({ pokemonData, id }) {
         color = "rgb(158, 138, 95)";
     }  else if(type === "ghost") {
         color = "rgb(143, 112, 194)";
-    } 
+    }   
 
     return (
-        <div style = {{"background-color": color}} className = "card">
+        <Link to={`pokemon/${id}`} style = {{"background-color": color}} className = "card">
             <CardTitle pokemonData = {pokemonData} id = {id} />
 
             <div className = "card-bottom">
@@ -93,7 +94,7 @@ function Card({ pokemonData, id }) {
 
                 <CardImg pokemonData = {pokemonData} id = {id} />
             </div>
-        </div>
+        </Link>
     );
 }
   
