@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import Pokemon from "./pages/pokemon_description/Pokemon";
-import ErrorPage from "./pages/404/ErrorPage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Home from "./pages/home/Home";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
@@ -13,8 +13,8 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/:error" element={<ErrorPage />} />
-        <Route path="/home/pokemon" element={<Pokemon />} />
+        <Route path="/home/:error" element={<ErrorPage />} />
+        <Route path="/home/pokemon/:id" element={<Pokemon />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
