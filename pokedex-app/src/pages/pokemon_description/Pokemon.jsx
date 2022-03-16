@@ -2,17 +2,19 @@ import './Pokemon.css';
 import ErrorPage from '../ErrorPage/ErrorPage'
 import Title from '../../components/TItle/Title';
 import Prop from '../../components/Prop/Prop'
+import { Link } from 'react-router-dom'
 
 import { useParams } from 'react-router-dom'
 import { getColor } from '../../resources/Color.js';
 
+let getPokemonName = (pokemonData, id) => pokemonData[id].name.charAt(0).toUpperCase() + pokemonData[id].name.slice(1);
+let getPokemonId = (pokemonData, id) => '#' + String(pokemonData[id].id).padStart(3, '0');
+
 function MainCard({ pokemonData, id, color }) {
 
-  let pokemonName = pokemonData[id].name;
-  pokemonName = pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+  let pokemonName = getPokemonName(pokemonData, id)
 
-  let pokemonId = String(pokemonData[id].id);
-  pokemonId = '#'  + pokemonId.padStart(3, '0');
+  let pokemonId = getPokemonId(pokemonData, id)
 
   let cardProps = []
   for (let i = 0; i < pokemonData[id].types.length; i++) {
@@ -59,11 +61,27 @@ function Stats({ color }) {
   )
 }
 
-function Evolutions ({ color }) {
+function Evolutions ({ pokemonData, id, color }) {
+
+  let evolutions = [];
+
+  // if (id % 3 === 0) {
+    for (let i = 0; i < 3; i++) {
+      if (pokemonData[i] !== null) {
+        let pokemonName = getPokemonName(pokemonData, i)
+        let pokemonId = getPokemonId(pokemonData, i)
+        evolutions.push(<Link to={`/home/pokemon/${i}`} className = "one-evolution">
+          <div>{pokemonName}</div>
+          <div>{pokemonId}</div>
+          <img src = {pokemonData[i].sprites.other.official_artwork.front_default} style = {{width: "100px"}}/>
+        </Link>)
+      }
+    }
+  // }
 
   return (
     <div style = {{"background-color": color}} className = "evolutions">
-      hello2
+      { evolutions }
     </div>
   )
 }
@@ -80,7 +98,7 @@ function getDescription(pokemonData, id, color) {
     
       <Stats color = {color}/>
 
-      <Evolutions color = {color}/>
+      <Evolutions pokemonData = {pokemonData} id = {id} color = {color}/>
     </div>
   )
 }
@@ -88,8 +106,9 @@ function getDescription(pokemonData, id, color) {
 function Sprites({ pokemonData, id, color }) {
 
   let sprites = [];
+  let i = 0;
   for (let key in pokemonData[id].sprites) {
-    if (key != "other" && pokemonData[id].sprites[key] != null) {
+    if (key !== "other" && pokemonData[id].sprites[key] !== null) {
       sprites.push(
         <div>
           <div>
@@ -99,6 +118,24 @@ function Sprites({ pokemonData, id, color }) {
         </div>
       )
     }
+    i++;
+    if (i === 4) break;
+  }
+
+  let sprites2 = []
+  i = 0;
+  for (let key in pokemonData[id].sprites) {
+    if (key !== "other" && pokemonData[id].sprites[key] !== null && i >= 4) {
+      sprites2.push(
+        <div>
+          <div>
+            {key}
+          </div>
+          <img src = {pokemonData[id].sprites[key]} className = "sprite-imgs-img"/>
+        </div>
+      )
+    }
+    i++;
   }
  
   return (
@@ -106,6 +143,9 @@ function Sprites({ pokemonData, id, color }) {
       <h1>Sprites</h1>
       <div className = "sprites-imgs">
         {sprites}
+      </div>
+      <div className = "sprites-imgs">
+        {sprites2}
       </div>
     </div>
   )
