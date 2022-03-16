@@ -44,7 +44,7 @@ function Card({ pokemonData, id }) {
             <CardTitle pokemonData = {pokemonData} id = {id} />
 
             <div className = "bottom">
-                <div>
+                <div className = "card-props">
                     {cardProps}
                 </div>
 

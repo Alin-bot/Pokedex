@@ -13,12 +13,11 @@ let getPokemonId = (pokemonData, id) => '#' + String(pokemonData[id].id).padStar
 function MainCard({ pokemonData, id, color }) {
 
   let pokemonName = getPokemonName(pokemonData, id)
-
   let pokemonId = getPokemonId(pokemonData, id)
 
   let cardProps = []
   for (let i = 0; i < pokemonData[id].types.length; i++) {
-    cardProps.push(<Prop pokemonData = {pokemonData} id = {id} number = {i}/>)
+    cardProps.push(<Prop pokemonData = {pokemonData} id = {id} number = {i} />)
   }
 
   let cardFooter = []
@@ -31,24 +30,24 @@ function MainCard({ pokemonData, id, color }) {
 
   return (
     <div style = {{"background-color": color}} className = "main-card">
-        <div className = "header">
-          <div className = "text-id">
-            <h1>{pokemonName}</h1>
-            <div>{pokemonId}</div>
-          </div>
-
-          <div className = "props">
-            {cardProps}
-          </div>
+      <div className = "header">
+        <div className = "text-id">
+          <h1>{pokemonName}</h1>
+          <div>{pokemonId}</div>
         </div>
 
-        <div className = "body">
-          <img className = "img" src = {pokemonData[id].sprites.other.official_artwork.front_default}/>
+        <div className = "h-props">
+          {cardProps}
         </div>
+      </div>
 
-        <div className = "footer">
-          {cardFooter}
-        </div>
+      <div className = "body">
+        <img className = "img" src = {pokemonData[id].sprites.other.official_artwork.front_default}/>
+      </div>
+
+      <div className = "footer">
+        {cardFooter}
+      </div>
     </div>
   );
 }
@@ -56,7 +55,7 @@ function MainCard({ pokemonData, id, color }) {
 function Stats({ color }) {
   return (
     <div style = {{"background-color": color}} className = "stats">
-      hello
+      Stats
     </div>
   )
 }
