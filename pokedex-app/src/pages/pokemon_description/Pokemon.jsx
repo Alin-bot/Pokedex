@@ -87,9 +87,26 @@ function getDescription(pokemonData, id, color) {
 
 function Sprites({ pokemonData, id, color }) {
 
+  let sprites = [];
+  for (let key in pokemonData[id].sprites) {
+    if (key != "other" && pokemonData[id].sprites[key] != null) {
+      sprites.push(
+        <div>
+          <div>
+            {key}
+          </div>
+          <img src = {pokemonData[id].sprites[key]} className = "sprite-imgs-img"/>
+        </div>
+      )
+    }
+  }
+ 
   return (
     <div style = {{"background-color": color}} className = "sprites">
-      hello3
+      <h1>Sprites</h1>
+      <div className = "sprites-imgs">
+        {sprites}
+      </div>
     </div>
   )
 }

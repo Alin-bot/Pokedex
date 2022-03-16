@@ -94,4 +94,19 @@
     border-radius: 15px;
     padding: 20px;
     margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-self: space-between;
+}
+
+.sprites-imgs {
+    display: flex;
+    justify-self: space-between;
+    flex-direction: row;
+}
+
+.sprite-imgs-img {
+    width: 180px;
+    height: auto;
 }
