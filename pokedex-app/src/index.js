@@ -8,13 +8,15 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Home from "./pages/home/Home";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
+import data from './resources/data.json'
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/home/:error" element={<ErrorPage />} />
-        <Route path="/home/pokemon/:id" element={<Pokemon />} />
+        <Route path="/home/pokemon/:id" element={<Pokemon pokemonData = {data}/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -11,17 +11,6 @@
     margin-left: auto;
 }
 
-.card-props-prop {
-    color: white;
-    margin-top: 10px;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-
-    width: 60px
-
-}
-
 .card-imgs {
     text-align: right;
     margin-left: 40px;
@@ -46,11 +35,7 @@
     text-decoration: none;
 }
 
-.card:hover {
-  background-color: rgba(255, 255, 255, 0.253);
-}
-
-.card-bottom {
+.card .bottom {
     margin-top: 50px;
     display: flex
 }

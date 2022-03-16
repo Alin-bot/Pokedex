@@ -1,0 +1,12 @@
+.props {
+    color: black;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+
+    width: 60px;
+
+    display: flex;
+}

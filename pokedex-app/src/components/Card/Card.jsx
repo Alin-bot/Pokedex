@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 import './Card.css';
+import Prop from '../Prop/Prop'
+import { getColor } from '../../resources/Color.js'
 
 function CardTitle({ pokemonData, id }) {
     let name = pokemonData[id].name;
@@ -18,45 +20,6 @@ function CardTitle({ pokemonData, id }) {
     )
 }
 
-function Prop({ pokemonData, id, number }) {
-    let prop = pokemonData[id].types[number].type.name;
-    prop = prop.charAt(0).toUpperCase() + prop.slice(1);
-
-    let color = "rgba(0, 0, 0, 0.2)"
-    if(number === "1") {
-        if(pokemonData[id].types[number].type.name === "poison") {
-            color = "purple"
-        } else if(pokemonData[id].types[number].type.name === "flying") {
-            color = "rgba(255, 255, 255, 0.4)"
-        }
-    }
-
-    return(
-        <div style = {{"background-color": color}} className = "card-props-prop">
-            { prop }
-        </div>
-    )
-}
-
-function CardProps({ pokemonData, id }) {
-
-    if(pokemonData[id].types.length === 2) {
-        return(
-            <div>
-                <Prop pokemonData = {pokemonData} id = {id} number = "0"/>
-                <Prop pokemonData = {pokemonData} id = {id} number = "1"/>
-            </div>
-        )
-    } else {
-        return(
-            <div>
-                <Prop pokemonData = {pokemonData} id = {id} number = "0"/>
-            </div>
-        )
-    }
-
-}
-
 function CardImg({ pokemonData, id }) {
     return(
         <div className = "card-imgs">
@@ -69,28 +32,21 @@ function Card({ pokemonData, id }) {
 
     const type = pokemonData[id].types[0].type.name;
 
-    let color = "black";
+    const color = getColor(type);
 
-    if(type === "grass") {
-        color = "rgb(136, 214, 121)";
-    } else if(type === "fire") {
-        color = "rgb(228, 127, 127)";
-    } else if(type === "water") {
-        color = "rgb(125, 146, 216)";
-    } else if(type === "electric") {
-        color = "rgb(228, 230, 117)";
-    } else if(type === "normal") {
-        color = "rgb(158, 138, 95)";
-    }  else if(type === "ghost") {
-        color = "rgb(143, 112, 194)";
-    }   
+    let cardProps = []
+    for (let i = 0; i < pokemonData[id].types.length; i++) {
+        cardProps.push(<Prop pokemonData = {pokemonData} id = {id} number = {i}/>)
+    }
 
     return (
         <Link to={`pokemon/${id}`} style = {{"background-color": color}} className = "card">
             <CardTitle pokemonData = {pokemonData} id = {id} />
 
-            <div className = "card-bottom">
-                <CardProps pokemonData = {pokemonData} id = {id} />
+            <div className = "bottom">
+                <div>
+                    {cardProps}
+                </div>
 
                 <CardImg pokemonData = {pokemonData} id = {id} />
             </div>
