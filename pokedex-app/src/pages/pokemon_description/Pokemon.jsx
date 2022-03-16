@@ -51,6 +51,49 @@ function MainCard({ pokemonData, id, color }) {
   );
 }
 
+function Stats({ color }) {
+  return (
+    <div style = {{"background-color": color}} className = "stats">
+      hello
+    </div>
+  )
+}
+
+function Evolutions ({ color }) {
+
+  return (
+    <div style = {{"background-color": color}} className = "evolutions">
+      hello2
+    </div>
+  )
+}
+
+function getDescription(pokemonData, id, color) {
+
+  const descriptionText = "The diamond shape crystals on its body exper air as cold as -240 degrees Fahrenheit, surrounding its enemies and encasing them in ice"
+
+  return (
+    <div className = "description">
+      <div>Description</div>
+
+      <div style = {{display: "flex", "flex-wrap": "wrap"}}>{descriptionText}</div>
+    
+      <Stats color = {color}/>
+
+      <Evolutions color = {color}/>
+    </div>
+  )
+}
+
+function Sprites({ pokemonData, id, color }) {
+
+  return (
+    <div style = {{"background-color": color}} className = "sprites">
+      hello3
+    </div>
+  )
+}
+
 function Pokemon({ pokemonData }) {
 
   const { id } = useParams();
@@ -64,13 +107,15 @@ function Pokemon({ pokemonData }) {
   const color = getColor(type);
 
   return (
-    <div className = "pokemon-details">
+    <div className = "pokemon">
       <Title>Pokedex</Title>
 
       <div className = "cards">
         <MainCard pokemonData = {pokemonData} id = {id} color = {color}/>
 
+        {getDescription( pokemonData, id, color)}
 
+        <Sprites pokemonData = {pokemonData} id = {id} color = {color}/>
       </div>
     </div>
   );

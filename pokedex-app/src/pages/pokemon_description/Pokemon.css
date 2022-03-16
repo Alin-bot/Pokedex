@@ -1,4 +1,4 @@
-.pokemon-details {
+.pokemon {
     background-color: #FFF7E8;
   
     padding-top: 1%;
@@ -8,8 +8,13 @@
     padding-bottom: 50px;
 }
 
-.pokemon-details .main-card {
+.pokemon .main-card {
     display: flex;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .main-card {
@@ -19,7 +24,6 @@
     padding: 30px;
     border-radius: 15px;
     width: 500px;
-
 }
 
 .main-card .header {
@@ -59,4 +63,35 @@
 .main-card .footer .footerText {
     display: flex;
     flex-direction: column;
+}
+
+.cards .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-left: 50px;
+    width: 500px;
+
+}
+
+.pokemon .cards .description .stats {
+    height: 150px;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.pokemon .cards .description .evolutions {
+    height: 100px;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.pokemon .cards .sprites {
+    height: 300px;
+    width: 1075px;
+
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 50px;
 }
