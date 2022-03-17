@@ -150,10 +150,11 @@ function Sprites({ pokemonData, id, color }) {
   let i = 0;
   for (let key in pokemonData[id].sprites) {
     if (key !== "other" && pokemonData[id].sprites[key] !== null) {
+      let newKey = key.split("_")
       sprites.push(
         <div>
           <div>
-            {key}
+            {newKey[0].charAt(0).toUpperCase() + newKey[0].slice(1) + ' ' + newKey[1].charAt(0).toUpperCase() + newKey[1].slice(1)}
           </div>
           <img src = {pokemonData[id].sprites[key]} className = "sprite-imgs-img"/>
         </div>
@@ -167,10 +168,11 @@ function Sprites({ pokemonData, id, color }) {
   i = 0;
   for (let key in pokemonData[id].sprites) {
     if (key !== "other" && pokemonData[id].sprites[key] !== null && i >= 4) {
+      let newKey = key.split("_")
       sprites2.push(
         <div>
           <div>
-            {key}
+            {newKey[0].charAt(0).toUpperCase() + newKey[0].slice(1) + ' ' + newKey[1].charAt(0).toUpperCase() + newKey[1].slice(1)}
           </div>
           <img src = {pokemonData[id].sprites[key]} className = "sprite-imgs-img"/>
         </div>
