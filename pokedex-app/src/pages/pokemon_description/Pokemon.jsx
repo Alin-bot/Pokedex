@@ -36,7 +36,7 @@ function MainCard({ pokemonData, id, color }) {
           <div>{pokemonId}</div>
         </div>
 
-        <div className = "h-props">
+        <div className = "header-props">
           {cardProps}
         </div>
       </div>

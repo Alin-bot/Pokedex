@@ -1,5 +1,5 @@
 .pokemon {
-    background-color: #FFF7E8;
+    background-color: #ebebeb;
   
     padding-top: 1%;
     padding-left: 24%;
@@ -41,7 +41,7 @@
     height: 100px;
 }
 
-.main-card .header .h-props {
+.main-card .header .header-props {
     display: flex;
     justify-content: space-around;
 
