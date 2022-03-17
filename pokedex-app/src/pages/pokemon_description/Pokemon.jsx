@@ -52,10 +52,44 @@ function MainCard({ pokemonData, id, color }) {
   );
 }
 
+function getStatBar(number) {
+
+  let color = "yellow";
+  if (number < 50) color = "red"
+  if (number > 150) color = "green"
+  
+  number += "px"
+  
+
+  return (
+    <div className = "status-bar" style = {{width: number, height: "10px", "background-color": color}}/>
+  )
+}
+
 function Stats({ color }) {
+  const values = [
+    ["HP", "124"],
+    ["Attack", "69"],
+    ["Defense", "255"],
+    ["Speed", "33"],
+    ["Special-Atack", "85"],
+    ["Special-Defense", "188"],
+  ];
+
+  let stats = [];
+  for(let i = 0; i < values.length; i++) {
+    stats.push(
+      <div className = "one-stat">
+        {values[i][0]}
+        {getStatBar(values[i][1])}
+        {values[i][1]}
+      </div>
+    )
+  }
+
   return (
     <div style = {{"background-color": color}} className = "stats">
-      Stats
+      {stats}
     </div>
   )
 }
