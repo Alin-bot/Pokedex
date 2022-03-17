@@ -54,15 +54,15 @@ function MainCard({ pokemonData, id, color }) {
 
 function getStatBar(number) {
 
-  let color = "yellow";
-  if (number < 50) color = "red"
-  if (number > 150) color = "green"
+  let color = "rgb(240, 250, 100)";
+  if (number < 50) color = "rgb(250, 100, 100)"
+  if (number > 150) color = "rgb(100, 250, 100)"
   
   number += "px"
   
 
   return (
-    <div className = "status-bar" style = {{width: number, height: "10px", "background-color": color}}/>
+    <div className = "status-bar" style = {{width: number, height: "8px", "background-color": color}}/>
   )
 }
 
@@ -76,20 +76,28 @@ function Stats({ color }) {
     ["Special-Defense", "188"],
   ];
 
-  let stats = [];
+  let stat = [];
+  let statValue = [];
+  let statName = [];
   for(let i = 0; i < values.length; i++) {
-    stats.push(
-      <div className = "one-stat">
-        {values[i][0]}
-        {getStatBar(values[i][1])}
-        {values[i][1]}
-      </div>
-    )
+    statName.push(<div>{values[i][0]}</div>);
+
+    stat.push(<div>{getStatBar(values[i][1])}</div>);
+
+    statValue.push(<div style = {{display: "flex", "justify-content": "flex-end"}}>{values[i][1]}</div>);
   }
 
   return (
     <div style = {{"background-color": color}} className = "stats">
-      {stats}
+      <div className = "one-stat">
+        {statName}
+      </div>
+      <div className = "one-stat">
+        {stat}
+      </div>
+      <div className = "one-stat">
+        {statValue}
+      </div>
     </div>
   )
 }

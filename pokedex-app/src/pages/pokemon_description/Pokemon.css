@@ -89,17 +89,18 @@
 
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .pokemon .cards .description .stats .one-stat{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .one-stat .status-bar {
     border-radius: 10px;
-    margin-top: 7px;
+    margin-top: 8px;
 }
 
 .pokemon .cards .description .evolutions {
