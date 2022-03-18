@@ -142,8 +142,10 @@
 
 .sprites-imgs {
     display: flex;
-    justify-self: space-evenly;
+    justify-content: center;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 800px;
 }
 
 .sprite-imgs-img {

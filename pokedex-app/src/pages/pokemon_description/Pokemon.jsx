@@ -80,7 +80,7 @@ function Stats({ color }) {
   let statValue = [];
   let statName = [];
   for(let i = 0; i < values.length; i++) {
-    statName.push(<div>{values[i][0]}</div>);
+    statName.push(<div style = {{"font-weight": "700"}}>{values[i][0]}</div>);
 
     stat.push(<div>{getStatBar(values[i][1])}</div>);
 
@@ -112,9 +112,9 @@ function Evolutions ({ pokemonData, id, color }) {
         let pokemonName = getPokemonName(pokemonData, i)
         let pokemonId = getPokemonId(pokemonData, i)
         evolutions.push(<Link to={`/home/pokemon/${i}`} className = "one-evolution">
-          <div>{pokemonName}</div>
+          <div style = {{"font-weight": "700"}}>{pokemonName}</div>
           <div>{pokemonId}</div>
-          <img src = {pokemonData[i].sprites.other.official_artwork.front_default} style = {{width: "100px"}}/>
+          <img src = {pokemonData[i].sprites.other.official_artwork.front_default} alt = "evolution" style = {{width: "100px"}}/>
         </Link>)
       }
     }
@@ -133,7 +133,7 @@ function getDescription(pokemonData, id, color) {
 
   return (
     <div className = "description">
-      <div>Description</div>
+      <div style = {{"font-weight": "700", "font-size": "20px"}}>Description</div>
 
       <div style = {{display: "flex", "flex-wrap": "wrap"}}>{descriptionText}</div>
     
@@ -147,7 +147,6 @@ function getDescription(pokemonData, id, color) {
 function Sprites({ pokemonData, id, color }) {
 
   let sprites = [];
-  let i = 0;
   for (let key in pokemonData[id].sprites) {
     if (key !== "other" && pokemonData[id].sprites[key] !== null) {
       let newKey = key.split("_")
@@ -156,29 +155,10 @@ function Sprites({ pokemonData, id, color }) {
           <div>
             {newKey[0].charAt(0).toUpperCase() + newKey[0].slice(1) + ' ' + newKey[1].charAt(0).toUpperCase() + newKey[1].slice(1)}
           </div>
-          <img src = {pokemonData[id].sprites[key]} className = "sprite-imgs-img"/>
+          <img src = {pokemonData[id].sprites[key]} alt = "pokemon" className = "sprite-imgs-img"/>
         </div>
       )
     }
-    i++;
-    if (i === 4) break;
-  }
-
-  let sprites2 = []
-  i = 0;
-  for (let key in pokemonData[id].sprites) {
-    if (key !== "other" && pokemonData[id].sprites[key] !== null && i >= 4) {
-      let newKey = key.split("_")
-      sprites2.push(
-        <div>
-          <div>
-            {newKey[0].charAt(0).toUpperCase() + newKey[0].slice(1) + ' ' + newKey[1].charAt(0).toUpperCase() + newKey[1].slice(1)}
-          </div>
-          <img src = {pokemonData[id].sprites[key]} className = "sprite-imgs-img"/>
-        </div>
-      )
-    }
-    i++;
   }
  
   return (
@@ -186,9 +166,6 @@ function Sprites({ pokemonData, id, color }) {
       <h1>Sprites</h1>
       <div className = "sprites-imgs">
         {sprites}
-      </div>
-      <div className = "sprites-imgs">
-        {sprites2}
       </div>
     </div>
   )
