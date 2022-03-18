@@ -32,7 +32,7 @@ function MainCard({ pokemonData, id, color }) {
     <div style = {{"background-color": color}} className = "main-card">
       <div className = "header">
         <div className = "text-id">
-          <h1>{pokemonName}</h1>
+          <div>{pokemonName}</div>
           <div>{pokemonId}</div>
         </div>
 
@@ -42,7 +42,7 @@ function MainCard({ pokemonData, id, color }) {
       </div>
 
       <div className = "body">
-        <img className = "img" src = {pokemonData[id].sprites.other.official_artwork.front_default}/>
+        <img src = {pokemonData[id].sprites.other.official_artwork.front_default} alt = "pokemon" className = "img"/>
       </div>
 
       <div className = "footer">
