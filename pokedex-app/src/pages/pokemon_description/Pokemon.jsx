@@ -32,7 +32,7 @@ function MainCard({ pokemonData, id, color }) {
     <div style = {{"background-color": color}} className = "main-card">
       <div className = "header">
         <div className = "text-id">
-          <div>{pokemonName}</div>
+          <div style = {{"font-size": "25px", "font-weight": "bold"}}>{pokemonName}</div>
           <div>{pokemonId}</div>
         </div>
 
@@ -76,28 +76,18 @@ function Stats({ color }) {
     ["Special-Defense", "188"],
   ];
 
-  let stat = [];
-  let statValue = [];
-  let statName = [];
+  let stats = [];
   for(let i = 0; i < values.length; i++) {
-    statName.push(<div style = {{"font-weight": "700"}}>{values[i][0]}</div>);
+    stats.push(<div>{ values[i][0] }</div>);
 
-    stat.push(<div>{getStatBar(values[i][1])}</div>);
+    stats.push(<div>{ getStatBar(values[i][1]) }</div>);
 
-    statValue.push(<div style = {{display: "flex", "justify-content": "flex-end"}}>{values[i][1]}</div>);
+    stats.push(<div style = {{"justify-self": "end"}}>{ values[i][1] }</div>);
   }
 
   return (
     <div style = {{"background-color": color}} className = "stats">
-      <div className = "one-stat">
-        {statName}
-      </div>
-      <div className = "one-stat">
-        {stat}
-      </div>
-      <div className = "one-stat">
-        {statValue}
-      </div>
+      { stats }
     </div>
   )
 }

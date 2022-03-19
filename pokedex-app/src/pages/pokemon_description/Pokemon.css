@@ -89,9 +89,9 @@
     border-color: black;
     box-shadow: 0px 0px 10px rgb(160, 160, 160);
 
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 130px 300px 20px;
+    grid-template-rows: repeat(6, 25px);
 }
 
 .pokemon .cards .description .stats .one-stat{
@@ -100,9 +100,9 @@
     flex-direction: column;
 }
 
-.one-stat .status-bar {
+.status-bar {
     border-radius: 10px;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .pokemon .cards .description .evolutions {
