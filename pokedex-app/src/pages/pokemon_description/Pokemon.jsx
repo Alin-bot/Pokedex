@@ -1,4 +1,4 @@
-import './Pokemon.css';
+import './dist/Pokemon.css';
 
 import ErrorPage from '../ErrorPage/ErrorPage';
 import Title from '../../components/TItle/Title';

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Title.css';
+import './dist/Title.css';
 
 import { Link } from 'react-router-dom'
 

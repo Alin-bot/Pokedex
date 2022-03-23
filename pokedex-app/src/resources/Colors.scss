@@ -1,0 +1,20 @@
+//COLORS
+$grass: rgba(136, 214, 121, 0.6);
+$fire: rgba(228, 127, 127, 0.6);
+$water: rgba(125, 146, 216, 0.6);
+$electric: rgba(228, 230, 117, 0.6);
+$normal: rgba(158, 138, 95, 0.6);
+$ghost: rgba(143, 112, 194, 0.6);
+
+$backgroundColor: #ebebeb;
+$shadowBorder: 0px 0px 10px rgb(160, 160, 160);
+//FONTS
+
+//FUNCTIONS
+@mixin cardBorder() {
+    border-style: solid;
+    border-color: black;
+    box-shadow: $shadowBorder;
+    border-radius: 15px;
+    border-width: 1.5px;
+}

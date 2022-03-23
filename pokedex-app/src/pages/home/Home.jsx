@@ -1,4 +1,4 @@
-import './Home.css';
+import './dist/Home.css';
 
 import Title from '../../components/TItle/Title';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -17,7 +17,7 @@ function Home({ data }) {
   function displayPokemonList() {
 
     const numberOfCards = data.length;
-    
+
     let itemList = [];
     for(let i = 0; i < numberOfCards; i++){
 

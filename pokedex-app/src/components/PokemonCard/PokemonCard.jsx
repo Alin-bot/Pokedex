@@ -1,6 +1,6 @@
 import React from 'react';
 import Prop from '../Prop/Prop';
-import './PokemonCard.css';
+import './dist/PokemonCard.css';
 import {getPokemonName, getPokemonId} from '../../resources/HelpingFunctions.js'
 
 function PokemonCard({ pokemon, color }) {

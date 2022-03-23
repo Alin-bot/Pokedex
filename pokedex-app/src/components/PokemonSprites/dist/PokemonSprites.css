@@ -1,0 +1,28 @@
+.sprites {
+  height: auto;
+  width: 1075px;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: black;
+  box-shadow: 0px 0px 10px #a0a0a0;
+  padding: 20px;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sprites-imgs {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 800px;
+}
+
+.sprite-imgs-img {
+  width: 180px;
+  height: auto;
+}

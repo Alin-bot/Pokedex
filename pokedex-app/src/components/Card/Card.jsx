@@ -1,38 +1,13 @@
-import React from 'react';
+import './dist/Card.css';
+import Prop from '../Prop/Prop'
+
+import { getColor } from '../../resources/Color.js'
+import { getPokemonName, getPokemonId } from '../../resources/HelpingFunctions.js'
+
 import {Link} from 'react-router-dom'
 
-import './Card.css';
-import Prop from '../Prop/Prop'
-import { getColor } from '../../resources/Color.js'
-
-function CardTitle({ pokemon }) {
-    let name = pokemon.name;
-    name = name.charAt(0).toUpperCase() + name.slice(1);
-
-    let pokemonId = String(pokemon.id);
-    pokemonId = '#'  + pokemonId.padStart(3, '0');
-    
-    return(
-        <div className = "card-title">
-            <div>{ name }</div>
-            <div className = "card-title-id">{ pokemonId }</div>
-        </div>
-    )
-}
-
-function CardImg({ pokemon }) {
-    return(
-        <div className = "card-imgs">
-            <img className = "card-imgs-img" alt = "img" src = {pokemon.sprites.other.official_artwork.front_default}/>
-        </div>
-    )
-}
-
 function Card({ pokemon, id }) {
-
-    const type = pokemon.types[0].type.name;
-
-    const color = getColor(type);
+    const color = getColor(pokemon.types[0].type.name);
 
     let cardProps = []
     for (let i = 0; i < pokemon.types.length; i++) {
@@ -40,15 +15,18 @@ function Card({ pokemon, id }) {
     }
 
     return (
-        <Link to={`pokemon/${id}`} style = {{"background-color": color}} className = "card">
-            <CardTitle pokemon = {pokemon} />
+        <Link to={`pokemon/${id}`} className = "card" style = {{"background-color": color}}>
+            <div className = "title">
+                <div>{ getPokemonName(pokemon) }</div>
+                <div className = "id">{ getPokemonId(pokemon) }</div>
+            </div>
 
-            <div className = "bottom">
-                <div className = "card-props">
+            <div className = "body">
+                <div className = "props">
                     {cardProps}
                 </div>
 
-                <CardImg pokemon = {pokemon} />
+                <img src = {pokemon.sprites.other.official_artwork.front_default} className = "img" alt = "img"/>
             </div>
         </Link>
     );

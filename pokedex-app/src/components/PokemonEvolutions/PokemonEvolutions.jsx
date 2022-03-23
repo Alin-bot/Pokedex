@@ -1,4 +1,4 @@
-import './PokemonEvolutions.css'
+import './dist/PokemonEvolutions.css'
 
 import {getPokemonName, getPokemonId} from '../../resources/HelpingFunctions.js';
 

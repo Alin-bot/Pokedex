@@ -1,4 +1,4 @@
-import './ErrorPage.css';
+import './dist/ErrorPage.css';
 
 import { Link } from 'react-router-dom'
 import snorlax from '../../resources/snorlax.png'
@@ -10,14 +10,17 @@ function ErrorPage() {
     <div className = "error-page">
       <div>
         <div>Hi! I'm Snorlax. I'm blocking the path.</div>
-        <img src = {snorlax} alt="snorlax" style = {{height: "400px", margin: "40px"}}/>
+
+        <img src = {snorlax} className = "snorlax" alt="snorlax"/>
+
         <div>
           Click {' '}
-          <Link to="/home" style = {{"text-decoration": "none"}}>
+          <Link to="/home" className = "link">
           here
           </Link>
           {' '} to go back! {' '}
-          <img src = {pokeflute}  alt="pokeflute" style = {{height: "15px"}}/>
+          
+          <img src = {pokeflute} className = "pokeflute" alt="pokeflute"/>
         </div>
       </div>
     </div>

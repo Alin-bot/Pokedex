@@ -1,0 +1,30 @@
+.cards .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 50px;
+  width: 500px;
+}
+
+.pokemon .cards .description .stats {
+  height: 150px;
+  border-radius: 15px;
+  padding: 30px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: black;
+  box-shadow: 0px 0px 10px #a0a0a0;
+  display: grid;
+  grid-template-columns: 130px 300px 20px;
+  grid-template-rows: repeat(6, 25px);
+}
+
+.pokemon .cards .description .stats .one-stat {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.status-bar {
+  border-radius: 10px;
+}
