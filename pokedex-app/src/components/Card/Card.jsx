@@ -5,11 +5,11 @@ import './Card.css';
 import Prop from '../Prop/Prop'
 import { getColor } from '../../resources/Color.js'
 
-function CardTitle({ pokemonData, id }) {
-    let name = pokemonData[id].name;
+function CardTitle({ pokemon }) {
+    let name = pokemon.name;
     name = name.charAt(0).toUpperCase() + name.slice(1);
 
-    let pokemonId = String(pokemonData[id].id);
+    let pokemonId = String(pokemon.id);
     pokemonId = '#'  + pokemonId.padStart(3, '0');
     
     return(
@@ -20,35 +20,35 @@ function CardTitle({ pokemonData, id }) {
     )
 }
 
-function CardImg({ pokemonData, id }) {
+function CardImg({ pokemon }) {
     return(
         <div className = "card-imgs">
-            <img className = "card-imgs-img" src = {pokemonData[id].sprites.other.official_artwork.front_default}/>
+            <img className = "card-imgs-img" alt = "img" src = {pokemon.sprites.other.official_artwork.front_default}/>
         </div>
     )
 }
 
-function Card({ pokemonData, id }) {
+function Card({ pokemon, id }) {
 
-    const type = pokemonData[id].types[0].type.name;
+    const type = pokemon.types[0].type.name;
 
     const color = getColor(type);
 
     let cardProps = []
-    for (let i = 0; i < pokemonData[id].types.length; i++) {
-        cardProps.push(<Prop pokemonData = {pokemonData} id = {id} number = {i}/>)
+    for (let i = 0; i < pokemon.types.length; i++) {
+        cardProps.push(<Prop pokemon = {pokemon} number = {i}/>)
     }
 
     return (
         <Link to={`pokemon/${id}`} style = {{"background-color": color}} className = "card">
-            <CardTitle pokemonData = {pokemonData} id = {id} />
+            <CardTitle pokemon = {pokemon} />
 
             <div className = "bottom">
                 <div className = "card-props">
                     {cardProps}
                 </div>
 
-                <CardImg pokemonData = {pokemonData} id = {id} />
+                <CardImg pokemon = {pokemon} />
             </div>
         </Link>
     );

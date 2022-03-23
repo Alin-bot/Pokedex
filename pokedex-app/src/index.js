@@ -14,7 +14,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<Home data = {data}/>} />
         <Route path="/home/:error" element={<ErrorPage />} />
         <Route path="/home/pokemon/:id" element={<Pokemon pokemonData = {data}/>} />
       </Routes>
