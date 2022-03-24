@@ -15,18 +15,15 @@ function Home({ data }) {
   }
 
   function displayPokemonList() {
-    let items = [];
-
-    data.filter(pokemon => isIncludedInClientInput(pokemon.name) ||
-    isIncludedInClientInput(pokemon.types[0].type.name) ||
-    isIncludedInClientInput(String(pokemon.id)) ||
-    (pokemon.types.length === 2 && isIncludedInClientInput(pokemon.types[1].type.name))
-    ).forEach(pokemon => items.push(<Card pokemon = {pokemon} id = {pokemon.id}/>))
-
-    return(
-      <div className = "cards">
-        { items }
-      </div>
+    return (
+      <div className = "cards">{
+          data.filter(pokemon =>
+            isIncludedInClientInput(pokemon.name) ||
+            isIncludedInClientInput(pokemon.types[0].type.name) ||
+            isIncludedInClientInput(String(pokemon.id)) ||
+            (pokemon.types.length === 2 && isIncludedInClientInput(pokemon.types[1].type.name))
+          ).map(pokemon => <Card pokemon = {pokemon} id = {pokemon.id}/>)
+      }</div>
     );
   }
 
