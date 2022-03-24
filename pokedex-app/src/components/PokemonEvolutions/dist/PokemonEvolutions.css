@@ -1,19 +1,25 @@
-.evolutions {
-  border-radius: 15px;
+.pokemon-evolutions {
   border-style: solid;
-  border-width: 1.5px;
   border-color: black;
   box-shadow: 0px 0px 10px #a0a0a0;
-  padding: 20px;
-  margin-top: 50px;
+  border-radius: 15px;
+  border-width: 1.5px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding: 20px;
+  margin-top: 50px;
+  width: 1070px;
 }
-
-.one-evolution {
+.pokemon-evolutions .evolution {
+  color: black;
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: black;
+}
+.pokemon-evolutions .evolution .title {
+  font-weight: 700;
+}
+.pokemon-evolutions .evolution .img {
+  width: 100px;
 }

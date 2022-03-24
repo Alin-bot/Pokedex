@@ -1,34 +1,44 @@
-.cards .description {
+@import '../../resources/Colors.scss';
+
+.pokemon-description {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    margin-left: 50px;
+    padding: 50px;
     width: 500px;
 
-}
+    .title {
+        font-weight: 700;
+        font-size: 20px;
+    }
 
-.pokemon .cards .description .stats {
-    height: 150px;
-    border-radius: 15px;
-    padding: 30px;
+    .text {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-    border-style: solid;
-    border-width: 1.5px;
-    border-color: black;
-    box-shadow: 0px 0px 10px rgb(160, 160, 160);
+    .stats {
+        @include cardBorder();
 
-    display: grid;
-    grid-template-columns: 130px 300px 20px;
-    grid-template-rows: repeat(6, 25px);
-}
+        padding: 30px;
+        height: 150px;
 
-.pokemon .cards .description .stats .one-stat{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
+        display: grid;
+        grid-template-columns: 130px 300px 20px;
+        grid-template-rows: repeat(6, 25px);
 
-.status-bar {
-    border-radius: 10px;
+        .bars {
+            align-self: center;
+
+            .bar {
+                border-radius: 10px;
+                height: 8px;
+            }
+        }
+
+        .numbers {
+            justify-self: end;
+        }
+    }
 }

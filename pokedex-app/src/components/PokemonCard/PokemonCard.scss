@@ -1,55 +1,44 @@
-.pokemon .main-card {
-    display: flex;
-    box-shadow: 0px 0px 10px rgb(160, 160, 160);
-}
+@import '../../resources/Colors.scss';
 
-.main-card {
+.pokemon-card {
+    @include cardBorder();
+
     display: flex;
     flex-direction: column;
-    
+
     padding: 30px;
-    border-radius: 15px;
-    border-style: solid;
-    border-width: 1.5px;
-    border-color: black;
     width: 500px;
-}
+    .header {
+        display: flex;
+        justify-content: space-between;
 
-.main-card .header {
-    display: flex;
-    justify-content: space-between;
-}
+        .props {
+            display: flex;
+            justify-content: space-around;
+        
+            height: 40px;
+            width: 200px;
+        }
+    }
 
-.main-card .header .text-id {
-    display: flex;
-    flex-direction: column;
+    .img {
+        width: 400px;
+        height: auto;
+    
+        margin-left: 50px;
+    }
 
-    height: 100px;
-}
+    .footer {
+        display: flex;
+        justify-content: space-between;
 
-.main-card .header .header-props {
-    display: flex;
-    justify-content: space-around;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 20px;
 
-    height: 40px;
-    width: 200px;
-}
-
-.main-card .body .img {
-    width: 400px;
-    height: auto;
-
-    margin-left: 40px;
-}
-
-.main-card .footer {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 60px;
-    padding-right: 60px;
-}
-
-.main-card .footer .footerText {
-    display: flex;
-    flex-direction: column;
+        .text {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }

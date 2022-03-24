@@ -1,28 +1,31 @@
-.sprites {
-  height: auto;
-  width: 1075px;
-  border-radius: 15px;
+.pokemon-sprites {
   border-style: solid;
-  border-width: 1.5px;
   border-color: black;
   box-shadow: 0px 0px 10px #a0a0a0;
-  padding: 20px;
-  margin-top: 50px;
+  border-radius: 15px;
+  border-width: 1.5px;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   text-align: center;
+  align-items: center;
+  height: auto;
+  width: 1030px;
+  padding: 20px;
+  padding-left: 60px;
+  margin-top: 50px;
+}
+.pokemon-sprites .sprite {
+  margin-left: 55px;
+}
+.pokemon-sprites .sprite .img {
+  width: 180px;
+  height: auto;
 }
 
 .sprites-imgs {
   display: flex;
   justify-content: center;
-  flex-direction: row;
   flex-wrap: wrap;
   width: 800px;
-}
-
-.sprite-imgs-img {
-  width: 180px;
-  height: auto;
 }

@@ -8,22 +8,27 @@ function PokemonEvolutions({ pokemonData, id, color}) {
   
     let evolutions = [];
     
-    // if (id % 3 === 0) {
-        for (let i = 0; i < 3; i++) {
+
+    for (let i = 0; i < 3; i++) {
         if (pokemonData[id] !== null) {
             let pokemonName = getPokemonName(pokemonData[i])
             let pokemonId = getPokemonId(pokemonData[i])
-            evolutions.push(<Link to={`/home/pokemon/${i}`} className = "one-evolution">
-                <div style = {{"font-weight": "700"}}>{pokemonName}</div>
-                <div>{pokemonId}</div>
-                <img src = {pokemonData[i].sprites.other.official_artwork.front_default} alt = "evolution" style = {{width: "100px"}}/>
-            </Link>)
+
+            evolutions.push(
+                <Link to={`/home/pokemon/${i}`} className = "evolution">
+                    <div className = "title">{pokemonName}</div>
+
+                    <div>{pokemonId}</div>
+
+                    <img src = {pokemonData[i].sprites.other.official_artwork.front_default} className = "img" alt = "evolution"/>
+                </Link>
+            )
         }
-        }
-    // }
+    }
+
     
     return (
-        <div style = {{"background-color": color}} className = "evolutions">
+        <div style = {{"background-color": color}} className = "pokemon-evolutions">
         { evolutions }
         </div>
     )

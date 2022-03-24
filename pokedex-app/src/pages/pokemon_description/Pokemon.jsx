@@ -11,6 +11,17 @@ import { getColor } from '../../resources/Color.js';
 
 import { useParams } from 'react-router-dom';
 
+// const Pokedex = createContext({});
+
+// const PokedexProvider = ({ children }) => {
+
+//   const [pokemonData, setPokemonData] = useState(0);
+
+//   return <Pokedex.Provider value = {{ pokemonData }}>
+//     { children }
+//     </Pokedex.Provider>
+// }
+
 function Pokemon({ pokemonData }) {
 
   const { id } = useParams();
