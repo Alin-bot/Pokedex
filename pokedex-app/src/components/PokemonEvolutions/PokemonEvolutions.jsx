@@ -7,18 +7,15 @@ import { Link } from 'react-router-dom';
 function PokemonEvolutions({ pokemonData, id, color}) {
   
     let evolutions = [];
-    
+    const pokemon = pokemonData.filter(pokemon => pokemon.id.toString() === id);
 
     for (let i = 0; i < 3; i++) {
-        if (pokemonData[id] !== null) {
-            let pokemonName = getPokemonName(pokemonData[i])
-            let pokemonId = getPokemonId(pokemonData[i])
-
+        if (pokemon[0] !== null) {
             evolutions.push(
                 <Link to={`/home/pokemon/${i}`} className = "evolution">
-                    <div className = "title">{pokemonName}</div>
+                    <div className = "title">{ getPokemonName(pokemonData[i]) }</div>
 
-                    <div>{pokemonId}</div>
+                    <div>{ getPokemonId(pokemonData[i]) }</div>
 
                     <img src = {pokemonData[i].sprites.other.official_artwork.front_default} className = "img" alt = "evolution"/>
                 </Link>

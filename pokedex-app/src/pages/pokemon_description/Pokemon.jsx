@@ -25,13 +25,13 @@ import { useParams } from 'react-router-dom';
 function Pokemon({ pokemonData }) {
 
   const { id } = useParams();
-  const pokemon = pokemonData[id];
+  const pokemon = pokemonData.filter(pokemon => pokemon.id.toString() === id);
 
-  if (id < 0 || id > 999 || isNaN(id)) {
+  if (id < 0 || id > 999 || isNaN(pokemon[0].id)) {
     return <ErrorPage/>
   }
 
-  const type = pokemon.types[0].type.name;
+  const type = pokemon[0].types[0].type.name;
 
   const color = getColor(type);
 
@@ -40,13 +40,13 @@ function Pokemon({ pokemonData }) {
       <Title>Pokedex</Title>
 
       <div className = "cards">
-        <PokemonCard pokemon = {pokemon} color = {color}/>
+        <PokemonCard pokemon = {pokemon[0]} color = {color}/>
 
-        <PokemonDescription pokemon = {pokemon} color = {color}/>
+        <PokemonDescription pokemon = {pokemon[0]} color = {color}/>
 
         <PokemonEvolutions pokemonData = {pokemonData} id = {id} color = {color}/>
 
-        <PokemonSprites pokemon = {pokemon} color = {color}/>
+        <PokemonSprites pokemon = {pokemon[0]} color = {color}/>
       </div>
     </div>
   );
