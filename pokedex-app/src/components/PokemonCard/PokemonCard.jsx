@@ -1,7 +1,9 @@
 import React from 'react';
+
 import Prop from '../Prop/Prop';
-import './dist/PokemonCard.css';
 import {getPokemonName, getPokemonId} from '../../resources/HelpingFunctions.js'
+
+import './PokemonCard.css';
 
 function PokemonCard({ pokemon, color }) {  
   let cardProps = []
@@ -39,4 +41,4 @@ function PokemonCard({ pokemon, color }) {
   );
 }
 
-  export default PokemonCard;
+export default PokemonCard;

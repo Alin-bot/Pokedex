@@ -1,4 +1,4 @@
-import './dist/PokemonDescription.css';
+import './PokemonDescription.css';
 
 function getStatBar(number) {
 

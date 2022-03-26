@@ -1,0 +1,40 @@
+.pokemon-evolutions {
+  -webkit-box-shadow: 0px 0px 10px #a0a0a0;
+          box-shadow: 0px 0px 10px #a0a0a0;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 20px;
+  margin-top: 50px;
+  width: 1070px;
+}
+
+.pokemon-evolutions .evolution {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-decoration: none;
+}
+
+.pokemon-evolutions .evolution .title {
+  font-weight: 700;
+}
+
+.pokemon-evolutions .evolution .img {
+  width: 100px;
+}
+/*# sourceMappingURL=PokemonEvolutions.css.map */

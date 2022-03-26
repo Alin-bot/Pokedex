@@ -1,13 +1,12 @@
-import './dist/Home.css';
+import { useState } from 'react';
 
-import Title from '../../components/TItle/Title';
-import SearchBar from '../../components/SearchBar/SearchBar';
-import Card from '../../components/Card/Card';
+import Title from '../../components/Title';
+import SearchBar from '../../components/SearchBar';
+import Card from '../../components/Card';
 
-import {useState} from 'react';
+import './Home.css';
 
 function Home({ data }) {
-
   const [clientInput, setClientInput] = useState('');
   
   function isIncludedInClientInput(str) {

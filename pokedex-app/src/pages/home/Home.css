@@ -1,0 +1,17 @@
+.app {
+  background-color: #c9c9c9;
+  padding-top: 1%;
+  padding-left: 24%;
+  padding-right: 140px;
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+.app .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+/*# sourceMappingURL=Home.css.map */

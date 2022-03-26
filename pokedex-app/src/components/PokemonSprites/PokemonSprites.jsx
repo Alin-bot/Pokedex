@@ -1,4 +1,4 @@
-import './dist/PokemonSprites.css'
+import './PokemonSprites.css'
 
 function PokemonSprites({ pokemon, color }) {
 

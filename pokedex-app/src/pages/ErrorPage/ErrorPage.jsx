@@ -1,8 +1,9 @@
-import './dist/ErrorPage.css';
-
 import { Link } from 'react-router-dom'
+
 import snorlax from '../../resources/snorlax.png'
 import pokeflute from '../../resources/pokeflute.png'
+
+import './ErrorPage.css';
 
 function ErrorPage() {
 
@@ -17,8 +18,8 @@ function ErrorPage() {
           Click {' '}
           <Link to="/home" className = "link">
           here
-          </Link>
-          {' '} to go back! {' '}
+          </Link>{' '}
+          to go back! {' '}
           
           <img src = {pokeflute} className = "pokeflute" alt="pokeflute"/>
         </div>

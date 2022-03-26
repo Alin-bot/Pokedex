@@ -1,0 +1,10 @@
+.title {
+  text-decoration: none;
+}
+
+.title .title-text {
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: black;
+}
+/*# sourceMappingURL=Title.css.map */

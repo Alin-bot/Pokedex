@@ -1,5 +1,6 @@
 import React from 'react';
-import './dist/Prop.css';
+
+import './Prop.css';
 
 function Prop({ pokemon, number }) {
     let prop = pokemon.types[number].type.name;

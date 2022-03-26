@@ -1,8 +1,8 @@
-import './dist/PokemonEvolutions.css'
+import { Link } from 'react-router-dom';
 
 import {getPokemonName, getPokemonId} from '../../resources/HelpingFunctions.js';
 
-import { Link } from 'react-router-dom';
+import './PokemonEvolutions.css'
 
 function PokemonEvolutions({ pokemonData, id, color}) {
   

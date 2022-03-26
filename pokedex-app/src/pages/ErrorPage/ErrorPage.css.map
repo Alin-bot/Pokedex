@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,WAAW,CAAC;EACR,gBAAgB,ECHF,OAAkB;EDKhC,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,cAAc,EAAE,MAAM;EACtB,UAAU,EAAE,MAAM;EAElB,UAAU,EAAE,KAAK;CAcpB;;AAvBD,AAWI,WAXO,CAWP,QAAQ,CAAC;EACL,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,IAAI;CACf;;AAdL,AAgBI,WAhBO,CAgBP,KAAK,CAAC;EACF,eAAe,EAAE,IAAI;CACxB;;AAlBL,AAoBI,WApBO,CAoBP,UAAU,CAAC;EACP,MAAM,EAAE,IAAI;CACf",
+    "sources": [
+        "ErrorPage.scss",
+        "../../style/Style.scss"
+    ],
+    "names": [],
+    "file": "ErrorPage.css"
+}

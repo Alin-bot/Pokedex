@@ -1,0 +1,12 @@
+.prop {
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  width: 70px;
+}
+/*# sourceMappingURL=Prop.css.map */

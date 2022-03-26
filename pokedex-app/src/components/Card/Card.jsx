@@ -1,10 +1,10 @@
-import './dist/Card.css';
-import Prop from '../Prop/Prop'
+import {Link} from 'react-router-dom'
 
 import { getColor } from '../../resources/Color.js'
 import { getPokemonName, getPokemonId } from '../../resources/HelpingFunctions.js'
+import Prop from '../Prop'
 
-import {Link} from 'react-router-dom'
+import './Card.css';
 
 function Card({ pokemon, id }) {
     const color = getColor(pokemon.types[0].type.name);
