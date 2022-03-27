@@ -20,7 +20,7 @@ ReactDOM.render(
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route index element={<Home data = {data}/>} />
-              <Route path="pokemon/:id" element={<Pokemon pokemonData = {data}/>} />
+              <Route path="pokemon/:id" element={<Pokemon/>} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>   
           </Suspense>

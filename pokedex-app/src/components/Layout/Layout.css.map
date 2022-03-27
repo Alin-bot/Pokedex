@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,UAAU,EAAE,KAAK;CAClB",
+    "mappings": "AAEA,AAAA,QAAQ,CAAC;EACP,UAAU,EAAE,KAAK;EACjB,WAAW,ECFN,UAAU,EAAE,OAAO,EAAE,SAAS;CDGpC",
     "sources": [
-        "Layout.scss"
+        "Layout.scss",
+        "../../style/Style.scss"
     ],
     "names": [],
     "file": "Layout.css"

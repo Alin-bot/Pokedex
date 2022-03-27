@@ -3,8 +3,8 @@ import './PokemonSprites.css'
 function PokemonSprites({ pokemon, color }) {
 
     let sprites = [];
-    for (let key in pokemon.sprites) {
-        if (key !== "other" && pokemon.sprites[key] !== null) {
+    for (let key in pokemon?.sprites) {
+        if (key !== "other" && key !== "versions" && pokemon?.sprites[key] !== null) {
             let newKey = key.split("_");
             sprites.push(
                 <div class = "sprite">
@@ -15,16 +15,16 @@ function PokemonSprites({ pokemon, color }) {
                         + newKey[1].charAt(0).toUpperCase()
                         + newKey[1].slice(1)}
                     </div>
-                    <img src = {pokemon.sprites[key]} className = "img" alt = "pokemon"/>
+                    <img src = {pokemon?.sprites[key]} className = "img" alt = "pokemon"/>
                 </div>
             )
         }
     }
 
     return (
-        <div style = {{"background-color": color}} className = "pokemon-sprites">
-            {sprites}
-        </div>
+        <div style = {{backgroundColor: color}} className = "pokemon-sprites">{
+            sprites 
+        }</div>
     )
 }
 

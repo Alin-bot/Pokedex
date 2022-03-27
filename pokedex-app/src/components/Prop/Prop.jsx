@@ -8,7 +8,7 @@ function Prop({ pokemon, number }) {
 
     return(
         <div className = "prop">
-            <img src = {`/type_icons/${pokemon.types[number].type.name}.svg`} alt = "prop" style = {{width: "15px", "margin-right": "5px"}}/>
+            <img src = {`/type_icons/${pokemon.types[number].type.name}.svg`} alt = "prop" style = {{width: "15px", marginRight: "5px"}}/>
             { prop }
         </div>
     )

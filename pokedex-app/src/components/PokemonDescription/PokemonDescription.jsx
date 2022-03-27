@@ -10,31 +10,23 @@ function getStatBar(number) {
 
 
     return (
-        <div className = "bar" style = {{width: number, "background-color": color}}/>
+        <div className = "bar" style = {{width: number, backgroundColor: color}}/>
     )
 }
 
-function Stats({ color }) {
-    const values = [
-        ["HP", "124"],
-        ["Attack", "69"],
-        ["Defense", "255"],
-        ["Special-Atack", "85"],
-        ["Special-Defense", "188"],
-        ["Speed", "33"],
-    ];
+function Stats({ values, color }) {
 
     let stats = [];
     for(let i = 0; i < values.length; i++) {
-        stats.push(<div>{ values[i][0] }</div>);
+        stats.push(<div>{ values?.[i]?.stat?.name }</div>);
 
-        stats.push(<div className = "bars">{ getStatBar(values[i][1]) }</div>);
+        stats.push(<div className = "bars">{ getStatBar(values?.[i]?.base_stat) }</div>);
 
-        stats.push(<div className = "numbers">{ values[i][1] }</div>);
+        stats.push(<div className = "numbers">{ values?.[i]?.base_stat }</div>);
     }
 
     return (
-        <div style = {{"background-color": color}} className = "stats">
+        <div style = {{backgroundColor: color}} className = "stats">
         { stats }
         </div>
     )
@@ -49,7 +41,7 @@ function PokemonDescription({ pokemon, color }) {
 
             <div>{ descriptionText }</div>
             
-            <Stats color = { color }/>
+            <Stats values = { pokemon?.stats } color = { color }/>
         </div>
     )
 }

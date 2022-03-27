@@ -1,5 +1,7 @@
 $backgroundColor: rgb(223, 223, 223);
 
+$font: "Consolas", Courier, monospace;
+
 @mixin cardBorder() {
   box-shadow: 0px 0px 10px #a0a0a0;
   border-radius: 10px;

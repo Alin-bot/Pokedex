@@ -1,14 +1,8 @@
 .pokemon-description {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 50px 100px;
+      grid-template-rows: 50px 100px;
   padding: 50px;
   width: 500px;
 }
@@ -37,8 +31,8 @@
   height: 150px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 130px 300px 20px;
-      grid-template-columns: 130px 300px 20px;
+  -ms-grid-columns: 150px 300px 20px;
+      grid-template-columns: 150px 300px 20px;
   -ms-grid-rows: (25px)[6];
       grid-template-rows: repeat(6, 25px);
 }

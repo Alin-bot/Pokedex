@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 import ErrorPage from '../ErrorPage';
 import Title from '../../components/Title';
@@ -10,31 +12,46 @@ import { getColor } from '../../resources/Color.js';
 
 import './Pokemon.css';
 
-function Pokemon({ pokemonData }) {
+function Pokemon() {
+  const [pokemon, setPokemon] = useState({})
+  const { id } = useParams(); 
 
-  const { id } = useParams();
-  const pokemon = pokemonData.filter(pokemon => pokemon.id.toString() === id);
+  useEffect(() => {
+      axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      .then(response => {
+          console.log(response.data);
+          setPokemon(response.data);
+          
+      })
+      .catch(error => {
+          console.log(error);
+      })
+  }, [id])
 
-  if (id < 0 || id > 999 || isNaN(pokemon[0].id)) {
+  if (id < 0 || id > 999 || isNaN(pokemon.id)) {
     return <ErrorPage/>
   }
 
-  const type = pokemon[0].types[0].type.name;
-
-  const color = getColor(type);
+  const color = getColor(pokemon?.types?.[0]?.type?.name);
 
   return (
     <div className = "pokemon">
       <Title>Pokedex</Title>
 
       <div className = "cards">
-        <PokemonCard pokemon = {pokemon[0]} color = {color}/>
+        <div className = "header">
+          <PokemonCard pokemon = {pokemon} color = {color}/>
 
-        <PokemonDescription pokemon = {pokemon[0]} color = {color}/>
+          <PokemonDescription pokemon = {pokemon} color = {color}/>
+        </div>
 
-        <PokemonEvolutions pokemonData = {pokemonData} id = {id} color = {color}/>
 
-        <PokemonSprites pokemon = {pokemon[0]} color = {color}/>
+        <div className="card-title">Evolutions</div>
+        {/* <PokemonEvolutions pokemonData = {pokemonData} id = {id} color = {color}/> */}
+
+        <div className="card-title">Sprites</div>
+        <PokemonSprites pokemon = {pokemon} color = {color}/>
       </div>
     </div>
   );
