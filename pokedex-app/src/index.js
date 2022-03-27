@@ -1,15 +1,16 @@
-import React, { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import DataProvider from './components/DataProvider'
 import Layout from './components/Layout';
-import Home from './pages/Home'
-import Pokemon from './pages/Pokemon'
-import ErrorPage from './pages/ErrorPage';
 import data from './resources/data.json'
 
 import './index.css';
+
+const Home = lazy(() => import('./pages/Home'));
+const Pokemon = lazy(() => import('./pages/Pokemon'))
+const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
 ReactDOM.render(
   <React.StrictMode>
