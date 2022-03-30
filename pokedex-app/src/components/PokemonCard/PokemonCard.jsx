@@ -62,7 +62,7 @@ function PokemonCard({ pokemon, pokemonSpecies, color }) {
         </div>
       
       <div className = "props">
-        {cardProps}
+        { cardProps }
         </div> 
       </div>
 
@@ -71,7 +71,7 @@ function PokemonCard({ pokemon, pokemonSpecies, color }) {
       </div>
 
       <div className = "footer">
-      {cardFooter}
+      { cardFooter }
       </div>
     </div>
   );

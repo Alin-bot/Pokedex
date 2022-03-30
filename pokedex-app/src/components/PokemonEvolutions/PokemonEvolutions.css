@@ -28,14 +28,36 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.pokemon-evolutions .evolution:hover {
+  -webkit-transition-delay: 0.05s;
+          transition-delay: 0.05s;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .pokemon-evolutions .evolution .title {
   font-weight: 700;
+  font-size: 20px;
 }
 
 .pokemon-evolutions .evolution .img {
-  width: 100px;
+  width: 150px;
+}
+
+.pokemon-evolutions .evolution .props {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 40px;
+  width: 230px;
 }
 /*# sourceMappingURL=PokemonEvolutions.css.map */

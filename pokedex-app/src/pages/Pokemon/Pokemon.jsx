@@ -55,12 +55,12 @@ function Pokemon() {
         <div className = "header">
           <PokemonCard pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>
 
-          <PokemonDescription pokemonSpecies = {pokemonSpecies} color = {color}/>
+          <PokemonDescription pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>
         </div>
 
 
         <div className="card-title">Evolutions</div>
-        <PokemonEvolutions pokemonData = {pokemon} id = {id} color = {color}/>
+        <PokemonEvolutions pokemonSpecies = {pokemonSpecies} id = {id} color = {color}/>
 
         <div className="card-title">Sprites</div>
         <PokemonSprites pokemon = {pokemon} color = {color}/>
