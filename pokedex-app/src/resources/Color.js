@@ -8,7 +8,7 @@ export function getColor(type) {
     } else if(type === "water") {
         color = "rgba(125, 146, 216, 0.6)";
     } else if(type === "electric") {
-        color = "rgba(228, 230, 117, 0.6)";
+        color = "rgba(230, 240, 110, 0.6)";
     } else if(type === "normal") {
         color = "rgba(158, 138, 95, 0.6)";
     }  else if(type === "ghost") {
@@ -18,7 +18,7 @@ export function getColor(type) {
     } else if(type === "poison") {
         color = "rgba(150, 50, 150, 0.6)";
     } else if(type === "ground") {
-        color = "rgba(200, 200, 90, 0.6)";
+        color = "rgba(180, 180, 90, 0.6)";
     } else if(type === "fairy") {
         color = "rgba(200, 100, 150, 0.6)";
     } else if(type === "fighting") {

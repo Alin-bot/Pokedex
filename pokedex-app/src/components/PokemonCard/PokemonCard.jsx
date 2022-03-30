@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react'
 
 import Prop from '../Prop/Prop';
 import {getPokemonName, getPokemonId} from '../../resources/HelpingFunctions.js'
@@ -66,8 +65,10 @@ function PokemonCard({ pokemon, pokemonSpecies, color }) {
         {cardProps}
         </div> 
       </div>
-    
-      <img src = {pokemon?.sprites?.other?.['official-artwork']?.front_default} alt = "pokemon" className = "img"/>
+
+      <div className='img-container'>
+        <img src = {pokemon?.sprites?.other?.['official-artwork']?.front_default} alt = "pokemon" className = "img"/>
+      </div>
 
       <div className = "footer">
       {cardFooter}

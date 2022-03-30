@@ -21,11 +21,16 @@
         }
     }
 
-    .img {
+    .img-container {
         width: 400px;
         height: auto;
-    
-        margin-left: 50px;
+        
+        .img {
+            width: 400px;
+            height: auto;
+        
+            margin-left: 50px;
+        }
     }
 
     .footer {

@@ -35,7 +35,12 @@
   width: 230px;
 }
 
-.pokemon-card .img {
+.pokemon-card .img-container {
+  width: 400px;
+  height: auto;
+}
+
+.pokemon-card .img-container .img {
   width: 400px;
   height: auto;
   margin-left: 50px;

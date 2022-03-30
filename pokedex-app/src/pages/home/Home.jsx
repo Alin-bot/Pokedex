@@ -3,28 +3,36 @@ import React, { useState } from 'react';
 import Title from '../../components/Title';
 import SearchBar from '../../components/SearchBar';
 import Card from '../../components/Card';
-import dataContext from '../../components/DataProvider'
+import DataContext from '../../components/DataProvider'
 
 import './Home.css';
+import axios from 'axios';
+import { useEffect } from 'react';
 
-function Home({ data }) {
-  const pokemons = React.useContext(dataContext);
+function Home() {
+  const pokemons = React.useContext(DataContext);
   const [clientInput, setClientInput] = useState('');
+  const [pokemonsAfterFetching, setPokemonsAfterFetching] = useState([]);
   
   function isIncludedInClientInput(str) {
     return str.toUpperCase().includes(clientInput.toUpperCase());
   }
 
-  function displayPokemonList() {
+  function DisplayPokemonList() {
+    useEffect(() => {
+      Promise
+        .all(pokemons?.map(pokemon => axios.get(`${pokemon.url}`)))
+        .then(response => setPokemonsAfterFetching(response))
+    }, []);
+
     return (
       <div className = "cards">{
-          data
-            .filter(pokemon =>
-              isIncludedInClientInput(pokemon.name) ||
-              isIncludedInClientInput(pokemon.types[0].type.name) ||
-              isIncludedInClientInput(String(pokemon.id)) ||
-              (pokemon.types.length === 2 && isIncludedInClientInput(pokemon.types[1].type.name)))
-            .map(pokemon => <Card pokemon = {pokemon} id = {pokemon.id}/>)
+        pokemonsAfterFetching?.filter(pokemon =>
+            isIncludedInClientInput(pokemon?.data?.name) ||
+            isIncludedInClientInput(pokemon?.data?.types?.[0]?.type?.name) ||
+            isIncludedInClientInput(String(pokemon?.data?.id)) ||
+            (pokemon?.types?.length === 2 && isIncludedInClientInput(pokemon?.data?.types?.[1]?.type?.name)))
+          .map(pokemon => <Card pokemon = {pokemon?.data} id = {pokemon?.data?.id}/>)
       }</div>
     );
   }
@@ -35,7 +43,7 @@ function Home({ data }) {
 
       <SearchBar value={clientInput} setValue={setClientInput}/>
       
-      {displayPokemonList()}
+      {DisplayPokemonList()}
     </div>
   );
 }

@@ -21,24 +21,24 @@ function Pokemon() {
 
   useEffect(() => {
     axios
-    .get(`${speciesUrl}`)
-    .then(response => {
-      setPokemonSpecies(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    })
+      .get(`${speciesUrl}`)
+      .then(response => {
+        setPokemonSpecies(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }, [speciesUrl])
 
   useEffect(() => {
     axios
-    .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-    .then(response => {
-      setPokemon(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    })
+      .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      .then(response => {
+        setPokemon(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }, [id])
 
   if (id < 0 || id > 999 || isNaN(id)) {
@@ -55,12 +55,12 @@ function Pokemon() {
         <div className = "header">
           <PokemonCard pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>
 
-          <PokemonDescription pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>
+          <PokemonDescription pokemonSpecies = {pokemonSpecies} color = {color}/>
         </div>
 
 
         <div className="card-title">Evolutions</div>
-        {/* <PokemonEvolutions pokemonData = {pokemonData} id = {id} color = {color}/> */}
+        <PokemonEvolutions pokemonData = {pokemon} id = {id} color = {color}/>
 
         <div className="card-title">Sprites</div>
         <PokemonSprites pokemon = {pokemon} color = {color}/>

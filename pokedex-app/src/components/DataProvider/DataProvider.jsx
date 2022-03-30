@@ -10,7 +10,7 @@ export const DataProvider = ({ children }) => {
 
     useEffect(() => {
         axios
-        .get('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0')
+        .get('https://pokeapi.co/api/v2/pokemon?limit=102&offset=0')
         .then(response => {
             setPokemonData(response.data.results);
         })
@@ -21,7 +21,7 @@ export const DataProvider = ({ children }) => {
 
     
     return (
-        <DataContext.Provider value={pokemonData}>
+        <DataContext.Provider value={ pokemonData }>
             { children }
         </DataContext.Provider>
     );

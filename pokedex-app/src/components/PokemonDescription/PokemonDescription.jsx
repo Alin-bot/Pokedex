@@ -44,9 +44,9 @@ function PokemonDescription({ pokemon, pokemonSpecies, color }) {
 
     return (
         <div className = "pokemon-description">
-            <div className='title-game'>
+            <div className = "title-game">
                 <div className = "title">
-                    {`Description   `}
+                    Description
                 </div>
                 <div>
                     <label for="cars">Game:</label>
