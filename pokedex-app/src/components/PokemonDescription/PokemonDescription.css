@@ -7,7 +7,16 @@
   width: 500px;
 }
 
-.pokemon-description .title {
+.pokemon-description .title-game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.pokemon-description .title-game .title {
   font-weight: 700;
   font-size: 20px;
 }

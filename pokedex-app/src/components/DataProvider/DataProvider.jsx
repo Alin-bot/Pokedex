@@ -3,16 +3,15 @@ import axios from 'axios'
 
 import './DataProvider.css'
 
-const dataContext = React.createContext(null);
+const DataContext = React.createContext({});
 
-function DataProvider({ children }) {
+export const DataProvider = ({ children }) => {
     const [pokemonData, setPokemonData] = useState([]);
 
     useEffect(() => {
         axios
         .get('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0')
         .then(response => {
-            // console.log(response.data.results);
             setPokemonData(response.data.results);
         })
         .catch(error => {
@@ -22,10 +21,10 @@ function DataProvider({ children }) {
 
     
     return (
-        <dataContext.Provider value={pokemonData}>
+        <DataContext.Provider value={pokemonData}>
             { children }
-        </dataContext.Provider>
+        </DataContext.Provider>
     );
 }
 
-export default DataProvider;
+export default DataContext;

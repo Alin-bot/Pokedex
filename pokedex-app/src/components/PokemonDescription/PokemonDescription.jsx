@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { getPokemonName } from '../../resources/HelpingFunctions';
+
 import './PokemonDescription.css';
 
 function getStatBar(number) {
@@ -17,8 +20,8 @@ function getStatBar(number) {
 function Stats({ values, color }) {
 
     let stats = [];
-    for(let i = 0; i < values.length; i++) {
-        stats.push(<div>{ values?.[i]?.stat?.name }</div>);
+    for(let i = 0; i < values?.length; i++) {
+        stats.push(<div>{ getPokemonName(values?.[i]?.stat) }</div>);
 
         stats.push(<div className = "bars">{ getStatBar(values?.[i]?.base_stat) }</div>);
 
@@ -32,12 +35,28 @@ function Stats({ values, color }) {
     )
 }
   
-function PokemonDescription({ pokemon, color }) {
-    const descriptionText = "The diamond shape crystals on its body exper air as cold as -240 degrees Fahrenheit, surrounding its enemies and encasing them in ice"
+function PokemonDescription({ pokemon, pokemonSpecies, color }) {
+    const [descriptionText, setDescriptionText] = useState(`${pokemonSpecies?.flavor_text_entries?.[0]?.flavor_text}`)
+
+    const handleSelect = (e) => {
+        setDescriptionText(e.target.value)
+    }
 
     return (
         <div className = "pokemon-description">
-            <div className = "title">Description</div>
+            <div className='title-game'>
+                <div className = "title">
+                    {`Description   `}
+                </div>
+                <div>
+                    <label for="cars">Game:</label>
+                    <select name="cars" onChange={handleSelect}>{
+                        pokemonSpecies?.flavor_text_entries
+                            ?.filter(text => text?.language?.name.toString() === "en")
+                            ?.map(text => <option value={`${text?.flavor_text}`}>{getPokemonName(text?.version)}</option>)
+                    }</select>
+                </div>
+            </div>
 
             <div>{ descriptionText }</div>
             

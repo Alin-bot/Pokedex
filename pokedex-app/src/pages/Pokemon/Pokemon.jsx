@@ -14,22 +14,34 @@ import './Pokemon.css';
 
 function Pokemon() {
   const [pokemon, setPokemon] = useState({})
+  const [pokemonSpecies, setPokemonSpecies] = useState({})
   const { id } = useParams(); 
 
+  const speciesUrl = pokemon?.species?.url;
+
   useEffect(() => {
-      axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-      .then(response => {
-          console.log(response.data);
-          setPokemon(response.data);
-          
-      })
-      .catch(error => {
-          console.log(error);
-      })
+    axios
+    .get(`${speciesUrl}`)
+    .then(response => {
+      setPokemonSpecies(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }, [speciesUrl])
+
+  useEffect(() => {
+    axios
+    .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    .then(response => {
+      setPokemon(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    })
   }, [id])
 
-  if (id < 0 || id > 999 || isNaN(pokemon.id)) {
+  if (id < 0 || id > 999 || isNaN(id)) {
     return <ErrorPage/>
   }
 
@@ -41,9 +53,9 @@ function Pokemon() {
 
       <div className = "cards">
         <div className = "header">
-          <PokemonCard pokemon = {pokemon} color = {color}/>
+          <PokemonCard pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>
 
-          <PokemonDescription pokemon = {pokemon} color = {color}/>
+          <PokemonDescription pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>
         </div>
 
 

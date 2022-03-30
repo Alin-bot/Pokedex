@@ -7,9 +7,13 @@
     padding: 50px;
     width: 500px;
 
-    .title {
-        font-weight: 700;
-        font-size: 20px;
+    .title-game {
+        display: flex;
+        justify-content: space-evenly;
+        .title {
+            font-weight: 700;
+            font-size: 20px;
+        }
     }
 
     .text {
