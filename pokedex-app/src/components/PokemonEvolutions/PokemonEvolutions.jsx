@@ -43,12 +43,27 @@ function Pokemon({ pokemonName }) {
     )
 }
 
-function getEvolutions(chain) {
+function getEvolutionsRecursively(name, pokemon) {
+    let evolutionRow = []
+
+    evolutionRow.push(<Pokemon pokemonName={name}/>);
+
+    if (pokemon?.evolves_to?.length !== 0) {
+        evolutionRow.push(getEvolutionsRecursively(pokemon?.species?.name, pokemon?.evolves_to?.[0]));
+    } else {
+        evolutionRow.push(<Pokemon pokemonName={pokemon?.species?.name}/>)
+    }
+
+    return evolutionRow;
+}
+
+function getEvolutions(pokemonName, evolves_to, color) {
     let evolutions = [];
 
-    evolutions.push(<Pokemon pokemonName={chain?.species?.name}/>);
-    evolutions.push(<Pokemon pokemonName={chain?.evolves_to?.[0]?.species?.name}/>);
-    evolutions.push(<Pokemon pokemonName={chain?.evolves_to?.[0]?.evolves_to?.[0]?.species?.name}/>);
+    evolves_to?.map(pokemon => evolutions.push(
+    <div style = {{backgroundColor: color}} className = "pokemon-evolutions">
+        { getEvolutionsRecursively(pokemonName, pokemon) }
+    </div>))
 
     return evolutions;
 }
@@ -62,6 +77,7 @@ function PokemonEvolutions({ pokemonSpecies, color}) {
         axios
             .get(`${evolutionUrl}`)
             .then(response => {
+                console.log(response.data.chain);
                 setChain(response.data.chain);
             })
             .catch(error => {
@@ -70,8 +86,8 @@ function PokemonEvolutions({ pokemonSpecies, color}) {
     }, [evolutionUrl]);
     
     return (
-        <div style = {{backgroundColor: color}} className = "pokemon-evolutions">
-            { getEvolutions(chain) }
+        <div className='evolutions'>
+            { getEvolutions(chain?.species?.name, chain?.evolves_to, color) }
         </div>
     )
 }

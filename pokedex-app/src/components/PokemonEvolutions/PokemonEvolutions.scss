@@ -1,48 +1,53 @@
 @import '../../style/Style.scss';
 
-.pokemon-evolutions {
-    @include cardBorder();
-
+.evolutions {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
 
-    padding: 20px;
-    margin-top: 50px;
-    width: 1070px;
-
-    .evolution {
-        color: black;
+    .pokemon-evolutions {
+        @include cardBorder();
 
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
 
-        text-decoration: none;
+        padding: 20px;
+        margin-top: 50px;
+        width: 1070px;
 
-        border-radius: 10px;
-        padding: 10px;
+        .evolution {
+            color: black;
 
-        &:hover {
-            transition-delay:0.05s;
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .title {
-            font-weight: 700;
-            font-size: 20px;
-        }
-
-        .img {
-            width: 150px;
-        }
-
-        .props {
             display: flex;
-            justify-content: space-around;
-        
-            height: 40px;
-            width: 230px;
+            flex-direction: column;
+            align-items: center;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+            padding: 10px;
+
+            &:hover {
+                transition-delay:0.05s;
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+
+            .title {
+                font-weight: 700;
+                font-size: 20px;
+            }
+
+            .img {
+                width: 150px;
+            }
+
+            .props {
+                display: flex;
+                justify-content: space-around;
+            
+                height: 40px;
+                width: 230px;
+            }
         }
     }
 }
