@@ -7,14 +7,14 @@ const DataContext = React.createContext({});
 
 export const DataProvider = ({ children }) => {
     const [pokemonData, setPokemonData] = useState([]);
-    const [pokemonsNumber, setPokemonsNumber] = useState(51);
+    const [pokemonsNumber, setPokemonsNumber] = useState(30);
     const [offset, setOffset] = useState(0);
 
     useEffect(() => {
         axios
         .get(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonsNumber}&offset=${offset}`)
         .then(response => {
-            console.log(pokemonsNumber);
+            console.log(offset);
             setPokemonData(response.data.results);
         })
         .catch(error => {
@@ -24,7 +24,7 @@ export const DataProvider = ({ children }) => {
 
     
     return (
-        <DataContext.Provider value={{ pokemonData, setPokemonsNumber }}>
+        <DataContext.Provider value={{ pokemonData, setPokemonsNumber, setOffset }}>
             { children }
         </DataContext.Provider>
     );

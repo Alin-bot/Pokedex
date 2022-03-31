@@ -9,6 +9,36 @@
   height: 100%;
   padding-bottom: 50px;
 
+  display: flex;
+  flex-direction: column;
+
+  .page-buttons {
+    margin-top: 30px;
+    margin-left: 208px;
+
+    display: flex;
+
+    .button {
+      width: 200px;
+      height: 30px;
+      background-color: white;
+      color: rgb(42, 43, 42);
+      margin-right: 30px;
+
+      border-style: solid;
+      border-radius: 7px;
+      border-width: 2px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        background-color: rgba(42, 43, 42, 0.2);
+      }
+    }
+  }
+
   .cards {
     display: flex;
     flex-wrap: wrap;

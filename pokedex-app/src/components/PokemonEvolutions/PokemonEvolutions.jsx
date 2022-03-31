@@ -77,7 +77,6 @@ function PokemonEvolutions({ pokemonSpecies, color}) {
         axios
             .get(`${evolutionUrl}`)
             .then(response => {
-                console.log(response.data.chain);
                 setChain(response.data.chain);
             })
             .catch(error => {

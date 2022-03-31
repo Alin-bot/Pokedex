@@ -9,8 +9,24 @@ import './Home.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 
+function PageButtons({ setOffset, setPokemonsNumber}) {
+  return (
+    <div className='page-buttons'>
+      <button className='button' onClick={() => setOffset(prev => prev - 30)}>
+        {`<-- previous-page`}
+      </button>
+      <button className='button' onClick={() => setPokemonsNumber(prev => prev + 30)}>
+        {`load more`}
+      </button>
+      <button className='button' onClick={() => setOffset(prev => prev + 30)}>
+        {`next-page -->`}
+      </button>
+    </div>
+  )
+}
+
 function Home() {
-  const { pokemonData, setPokemonsNumber } = React.useContext(DataContext);
+  const { pokemonData, setPokemonsNumber, setOffset } = React.useContext(DataContext);
   const [clientInput, setClientInput] = useState('');
   const [pokemonsAfterFetching, setPokemonsAfterFetching] = useState([]);
   
@@ -44,7 +60,8 @@ function Home() {
       <SearchBar value={clientInput} setValue={setClientInput}/>
       
       {DisplayPokemonList()}
-      <button onClick={() => setPokemonsNumber(prev => prev + 30)}>Press me</button>
+
+      <PageButtons setOffset={setOffset} setPokemonsNumber={setPokemonsNumber}/>
     </div>
   );
 }

@@ -35,7 +35,7 @@ function Stats({ values, color }) {
 }
   
 function PokemonDescription({ pokemon, pokemonSpecies, color }) {
-    const [descriptionText, setDescriptionText] = useState(`${pokemonSpecies?.flavor_text_entries?.[0]?.flavor_text}`)
+    const [descriptionText, setDescriptionText] = useState(String(pokemonSpecies?.flavor_text_entries?.[0]?.flavor_text))
 
     const handleSelect = (e) => {
         setDescriptionText(e.target.value)

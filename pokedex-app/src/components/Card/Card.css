@@ -15,9 +15,7 @@
 }
 
 .card:hover {
-  -webkit-transition-delay: 0.05s;
-          transition-delay: 0.05s;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: black;
 }
 
 .card .title {

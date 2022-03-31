@@ -1,5 +1,5 @@
 export function getColor(type) {
-    let color = "black";
+    let color = "grey";
   
     if(type === "grass") {
         color = "rgba(136, 214, 121, 0.6)";
