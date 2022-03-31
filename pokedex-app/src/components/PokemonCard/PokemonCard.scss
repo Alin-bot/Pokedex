@@ -12,6 +12,10 @@
         display: flex;
         justify-content: space-between;
 
+        .name {
+            font-size: 25px;
+            font-weight: bold;
+        }
         .props {
             display: flex;
             justify-content: space-around;
@@ -41,9 +45,8 @@
         padding-right: 20px;
         margin-top: 20px;
 
-        .text {
-            display: flex;
-            flex-direction: column;
+        .info-title {
+            font-weight: bold;
         }
     }
 }

@@ -25,6 +25,11 @@
           justify-content: space-between;
 }
 
+.pokemon-card .header .name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .pokemon-card .header .props {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -58,13 +63,7 @@
   margin-top: 20px;
 }
 
-.pokemon-card .footer .text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.pokemon-card .footer .info-title {
+  font-weight: bold;
 }
 /*# sourceMappingURL=PokemonCard.css.map */
