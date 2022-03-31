@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import Title from '../../components/Title';
 import SearchBar from '../../components/SearchBar';
 import Card from '../../components/Card';
-import DataContext from '../../components/DataProvider'
+import DataContext from '../../components/DataProvider/'
 
 import './Home.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 
 function Home() {
-  const pokemons = React.useContext(DataContext);
+  const { pokemonData, setPokemonsNumber } = React.useContext(DataContext);
   const [clientInput, setClientInput] = useState('');
   const [pokemonsAfterFetching, setPokemonsAfterFetching] = useState([]);
   
@@ -21,7 +21,7 @@ function Home() {
   function DisplayPokemonList() {
     useEffect(() => {
       Promise
-        .all(pokemons?.map(pokemon => axios.get(`${pokemon.url}`)))
+        .all(pokemonData?.map(pokemon => axios.get(`${pokemon.url}`)))
         .then(response => setPokemonsAfterFetching(response))
     }, []);
 
@@ -32,7 +32,7 @@ function Home() {
             isIncludedInClientInput(pokemon?.data?.types?.[0]?.type?.name) ||
             isIncludedInClientInput(String(pokemon?.data?.id)) ||
             (pokemon?.types?.length === 2 && isIncludedInClientInput(pokemon?.data?.types?.[1]?.type?.name)))
-          .map(pokemon => <Card pokemon = {pokemon?.data} id = {pokemon?.data?.id}/>)
+          .map(pokemon => <Card pokemon = {pokemon?.data} id = {pokemon?.data?.id} key={pokemon?.data?.id}/>)
       }</div>
     );
   }
@@ -44,6 +44,7 @@ function Home() {
       <SearchBar value={clientInput} setValue={setClientInput}/>
       
       {DisplayPokemonList()}
+      <button onClick={() => setPokemonsNumber(prev => prev + 30)}>Press me</button>
     </div>
   );
 }

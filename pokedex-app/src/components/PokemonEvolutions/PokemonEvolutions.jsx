@@ -46,12 +46,12 @@ function Pokemon({ pokemonName }) {
 function getEvolutionsRecursively(name, pokemon) {
     let evolutionRow = []
 
-    evolutionRow.push(<Pokemon pokemonName={name}/>);
+    evolutionRow.push(<Pokemon pokemonName={name} key={name}/>);
 
     if (pokemon?.evolves_to?.length !== 0) {
         evolutionRow.push(getEvolutionsRecursively(pokemon?.species?.name, pokemon?.evolves_to?.[0]));
     } else {
-        evolutionRow.push(<Pokemon pokemonName={pokemon?.species?.name}/>)
+        evolutionRow.push(<Pokemon pokemonName={pokemon?.species?.name} key={pokemon?.species?.name}/>)
     }
 
     return evolutionRow;
@@ -61,7 +61,7 @@ function getEvolutions(pokemonName, evolves_to, color) {
     let evolutions = [];
 
     evolves_to?.map(pokemon => evolutions.push(
-    <div style = {{backgroundColor: color}} className = "pokemon-evolutions">
+    <div style={{backgroundColor: color}} className="pokemon-evolutions" key={pokemon?.species?.name}>
         { getEvolutionsRecursively(pokemonName, pokemon) }
     </div>))
 

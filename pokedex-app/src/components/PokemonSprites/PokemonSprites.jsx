@@ -7,7 +7,7 @@ function PokemonSprites({ pokemon, color }) {
         if (key !== "other" && key !== "versions" && pokemon?.sprites[key] !== null) {
             let newKey = key.split("_");
             sprites.push(
-                <div className = "sprite">
+                <div className = "sprite" key={key}>
                     <div>
                         {newKey[0].charAt(0).toUpperCase()
                         + newKey[0].slice(1)

@@ -31,6 +31,10 @@ export function getColor(type) {
         color = "rgba(120, 180, 200, 0.6)";
     } else if(type === "dragon") {
         color = "rgba(220, 130, 200, 0.6)";
+    } else if(type === "dark") {
+        color = "rgba(20, 20, 40, 0.6)";
+    } else if(type === "steel") {
+        color = "rgba(20, 50, 70, 0.6)";
     }
   
     return color;

@@ -11,22 +11,22 @@ function Card({ pokemon, id }) {
 
     let cardProps = []
     for (let i = 0; i < pokemon?.types?.length; i++) {
-        cardProps.push(<Prop pokemon = {pokemon} number = {i}/>)
+        cardProps.push(<Prop pokemon={pokemon} number={i} key={i}/>)
     }
 
     return (
-        <Link to={`pokemon/${id}`} className = "card" style = {{backgroundColor: color}}>
-            <div className = "title">
+        <Link to={`pokemon/${id}`} className="card" style={{backgroundColor: color}}>
+            <div className="title">
                 <div>{ getPokemonName(pokemon) }</div>
-                <div className = "id">{ getPokemonId(pokemon) }</div>
+                <div className="id">{ getPokemonId(pokemon) }</div>
             </div>
 
-            <div className = "body">
-                <div className = "props">
+            <div className="body">
+                <div className="props">
                     {cardProps}
                 </div>
 
-                <img src = {pokemon?.sprites?.other?.['official-artwork']?.front_default} className = "img" alt = "img"/>
+                <img src = {pokemon?.sprites?.other?.['official-artwork']?.front_default} className="img" alt="img"/>
             </div>
         </Link>
     );
