@@ -1,0 +1,48 @@
+@import '../../style/Style.scss';
+
+.pokemon-description {
+    display: grid;
+    grid-template-rows: 50px 100px ;
+
+    padding: 50px;
+    width: 500px;
+
+    .title-game {
+        display: flex;
+        justify-content: space-evenly;
+        .title {
+            font-weight: 700;
+            font-size: 20px;
+        }
+    }
+
+    .text {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .stats {
+        @include cardBorder();
+
+        padding: 30px;
+        height: 150px;
+        margin-top: 50px;
+
+        display: grid;
+        grid-template-columns: 150px 300px 20px;
+        grid-template-rows: repeat(6, 25px);
+
+        .bars {
+            align-self: center;
+
+            .bar {
+                border-radius: 10px;
+                height: 8px;
+            }
+        }
+
+        .numbers {
+            justify-self: end;
+        }
+    }
+}

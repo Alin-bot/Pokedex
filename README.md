@@ -12,4 +12,4 @@ The app features a search bar which is providing a filter option for names, ids 
 
 Clicking on a pokemon card, you will be redirected to the details of that pokemon. Many informations can be viewed from there, like stats, evolutions, description, sprites etc. via informations got from more Api calls.
 
-An error page can be accesed too by giving a bad url or by accesing a pokemon id that is not between 0 and 999. 
+An error page can be accesed too by giving a bad url or by accesing a pokemon id that is not between 0 and 999.
