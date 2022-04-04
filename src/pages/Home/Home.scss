@@ -14,7 +14,6 @@
   @media (max-width: $max-screen) {
     align-items: center;
     padding-left: 10%;
-    padding-right: 40px;
   }
 
   .page-buttons {
@@ -22,6 +21,14 @@
     margin-left: 208px;
 
     display: flex;
+
+    @media (max-width: $max-screen) {
+      display: flex;
+      flex-direction: column;
+      height: 150px;
+      justify-content: space-between;
+      margin-left: 100px;
+    }
 
     .button {
       width: 200px;
@@ -47,5 +54,9 @@
   .cards {
     display: flex;
     flex-wrap: wrap;
+
+    @media (max-width: $max-screen) {
+      width: 300px;
+    }
   }
 }

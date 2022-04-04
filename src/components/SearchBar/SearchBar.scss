@@ -1,3 +1,5 @@
+@import '../../style/Style.scss';
+
 .search-bar {
     width: 300px;
 
@@ -8,9 +10,12 @@
     outline: 0;
     border: white;
     border-radius: 15px;
-    
 
     background-image: url(https://static.vecteezy.com/system/resources/previews/001/591/517/non_2x/free-search-icon-free-vector.jpg);
     background-size: 50px;
     background-repeat: no-repeat;
+
+    @media (max-width: $max-screen) {
+        width: 200px;
+    }
 }

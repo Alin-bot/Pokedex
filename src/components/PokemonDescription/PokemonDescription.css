@@ -70,6 +70,12 @@
 @media (max-width: 1200px) {
   .pokemon-description .stats {
     padding: 10px;
+    -ms-grid-columns: 100px 300px 20px;
+        grid-template-columns: 100px 300px 20px;
+    -ms-grid-rows: (40px)[6];
+        grid-template-rows: repeat(6, 40px);
+    height: 230px;
+    width: 420px;
   }
 }
 

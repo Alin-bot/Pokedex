@@ -47,6 +47,10 @@
 
         @media (max-width: $max-screen) {
             padding: 10px;
+            grid-template-columns: 100px 300px 20px;
+            grid-template-rows: repeat(6, 40px);
+            height: 230px;
+            width: 420px;
         }
 
         .bars {

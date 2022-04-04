@@ -10,4 +10,10 @@
   background-size: 50px;
   background-repeat: no-repeat;
 }
+
+@media (max-width: 1200px) {
+  .search-bar {
+    width: 200px;
+  }
+}
 /*# sourceMappingURL=SearchBar.css.map */

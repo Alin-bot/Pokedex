@@ -16,11 +16,10 @@
     margin-top: 50px;
     
     @media (max-width: $max-screen) {
-        flex-direction: column;
-        max-width: 200px;
+        max-width: 280px;
         padding: 0px;
-        padding-top: 20px;
-        align-self: center;
+        padding-top: 10px;
+        padding-left: 20px;
     }
 
     .sprite {
@@ -32,14 +31,10 @@
 
         .img {
             width: 180px;
-            height: auto;
+
+            @media (max-width: $max-screen) {
+                width: 130px;
+            }
         }
     }
-}
-
-.sprites-imgs {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 800px;
 }

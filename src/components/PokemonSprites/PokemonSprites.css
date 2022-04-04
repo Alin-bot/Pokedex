@@ -27,16 +27,10 @@
 
 @media (max-width: 1200px) {
   .pokemon-sprites {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    max-width: 200px;
+    max-width: 280px;
     padding: 0px;
-    padding-top: 20px;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    padding-top: 10px;
+    padding-left: 20px;
   }
 }
 
@@ -52,18 +46,11 @@
 
 .pokemon-sprites .sprite .img {
   width: 180px;
-  height: auto;
 }
 
-.sprites-imgs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 800px;
+@media (max-width: 1200px) {
+  .pokemon-sprites .sprite .img {
+    width: 130px;
+  }
 }
 /*# sourceMappingURL=PokemonSprites.css.map */
