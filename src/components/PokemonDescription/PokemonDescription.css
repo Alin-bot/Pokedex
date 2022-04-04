@@ -3,8 +3,8 @@
   display: grid;
   -ms-grid-rows: 50px 100px;
       grid-template-rows: 50px 100px;
-  padding: 50px;
-  width: 500px;
+  margin-top: 60px;
+  padding-left: 2%;
 }
 
 .pokemon-description .title-game {
@@ -21,12 +21,8 @@
   font-size: 20px;
 }
 
-.pokemon-description .text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+.pokemon-description .description-text {
+  width: 470px;
 }
 
 .pokemon-description .stats {
@@ -38,6 +34,7 @@
   border-color: black;
   padding: 30px;
   height: 150px;
+  width: 470px;
   margin-top: 50px;
   display: -ms-grid;
   display: grid;

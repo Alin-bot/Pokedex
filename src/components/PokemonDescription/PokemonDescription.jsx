@@ -57,7 +57,7 @@ function PokemonDescription({ pokemon, pokemonSpecies, color }) {
                 </div>
             </div>
 
-            <div>{ descriptionText }</div>
+            <div className='description-text'>{ descriptionText }</div>
             
             <Stats values={ pokemon?.stats } color={ color }/>
         </div>

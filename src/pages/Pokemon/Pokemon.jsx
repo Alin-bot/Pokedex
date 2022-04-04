@@ -49,10 +49,10 @@ function Pokemon() {
 
   return (
     <div className = "pokemon">
-      <Title>Pokedex</Title>
-
       <div className = "cards">
-        <div className = "header">
+        <Title>Pokedex</Title>
+
+        <div className = "pokemon-header">
           <PokemonCard pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>
 
           <PokemonDescription pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>

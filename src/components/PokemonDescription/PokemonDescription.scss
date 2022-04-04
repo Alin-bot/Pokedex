@@ -4,21 +4,21 @@
     display: grid;
     grid-template-rows: 50px 100px ;
 
-    padding: 50px;
-    width: 500px;
+    margin-top: 60px;
+    padding-left: 2%;
 
     .title-game {
         display: flex;
         justify-content: space-evenly;
+        
         .title {
             font-weight: 700;
             font-size: 20px;
         }
     }
 
-    .text {
-        display: flex;
-        flex-wrap: wrap;
+    .description-text {
+        width: 470px;
     }
 
     .stats {
@@ -26,6 +26,7 @@
 
         padding: 30px;
         height: 150px;
+        width: 470px;
         margin-top: 50px;
 
         display: grid;

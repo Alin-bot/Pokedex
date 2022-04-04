@@ -3,19 +3,25 @@
 .pokemon {
     background-color: $backgroundColor;
   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     padding-top: 1%;
-    padding-left: 24%;
-    padding-right: 140px;
-    height: 100%;
     padding-bottom: 50px;
 
     .cards {
         display: flex;
         flex-direction: column;
 
-        .header {
+        .pokemon-header {
             display: flex;
-            flex-direction: row;
+
+            @media (max-width: $max-screen) {
+                flex-wrap: wrap;
+                max-width: 600px;
+                align-self: center;
+            }
         }
 
         .card-title {
