@@ -24,6 +24,14 @@
           flex-direction: column;
 }
 
+@media (max-width: 1200px) {
+  .pokemon .cards {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .pokemon .cards .pokemon-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -32,12 +40,14 @@
 
 @media (max-width: 1200px) {
   .pokemon .cards .pokemon-header {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     max-width: 600px;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 

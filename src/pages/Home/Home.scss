@@ -11,6 +11,12 @@
   display: flex;
   flex-direction: column;
 
+  @media (max-width: $max-screen) {
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 40px;
+  }
+
   .page-buttons {
     margin-top: 30px;
     margin-left: 208px;

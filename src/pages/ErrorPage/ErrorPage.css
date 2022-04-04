@@ -22,6 +22,12 @@
   margin: 40px;
 }
 
+@media (max-width: 700px) {
+  .error-page .snorlax {
+    height: 200px;
+  }
+}
+
 .error-page .link {
   text-decoration: none;
 }

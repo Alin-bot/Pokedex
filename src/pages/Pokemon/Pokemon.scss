@@ -14,13 +14,17 @@
         display: flex;
         flex-direction: column;
 
+        @media (max-width: $max-screen) {
+            align-items: center;
+        }
+
         .pokemon-header {
             display: flex;
 
             @media (max-width: $max-screen) {
-                flex-wrap: wrap;
+                flex-direction: column;
                 max-width: 600px;
-                align-self: center;
+                align-items: center;
             }
         }
 

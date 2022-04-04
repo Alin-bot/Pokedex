@@ -7,6 +7,21 @@
   padding-left: 2%;
 }
 
+@media (max-width: 1200px) {
+  .pokemon-description {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .pokemon-description .title-game {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -19,10 +34,18 @@
 .pokemon-description .title-game .title {
   font-weight: 700;
   font-size: 20px;
+  margin-right: 20px;
 }
 
 .pokemon-description .description-text {
   width: 470px;
+}
+
+@media (max-width: 1200px) {
+  .pokemon-description .description-text {
+    margin-top: 30px;
+    width: 200px;
+  }
 }
 
 .pokemon-description .stats {
@@ -42,6 +65,12 @@
       grid-template-columns: 150px 300px 20px;
   -ms-grid-rows: (25px)[6];
       grid-template-rows: repeat(6, 25px);
+}
+
+@media (max-width: 1200px) {
+  .pokemon-description .stats {
+    padding: 10px;
+  }
 }
 
 .pokemon-description .stats .bars {

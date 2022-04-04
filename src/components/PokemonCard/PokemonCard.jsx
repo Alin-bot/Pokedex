@@ -9,40 +9,40 @@ function getPokemonInfos(pokemon, pokemonSpecies) {
   let cardFooter = []
 
   if (pokemon?.weight < 100)
-    cardFooter.push(<div key='wheight'>
+    cardFooter.push(<div key='wheight' className='info'>
       <div>Weight</div>
       <div className='info-title'>{`0.${pokemon?.weight?.toString().charAt(0).concat(' kg')}`}</div>
     </div>)
   else {
-    cardFooter.push(<div key='wheight'>
+    cardFooter.push(<div key='wheight' className='info'>
       <div>Weight</div>
       <div className='info-title'>{`${pokemon?.weight?.toString().substring(0,2)}.${pokemon?.weight?.toString().substring(2)} kg`}</div>
     </div>)
   }
 
   if (pokemon?.height < 10)
-    cardFooter.push(<div key='height'>
+    cardFooter.push(<div key='height' className='info'>
       <div>Height</div>
       <div className='info-title'>{`0.${pokemon?.height?.toString().concat(' meters')}`}</div>
     </div>)
   else {
-    cardFooter.push(<div key='height'>
+    cardFooter.push(<div key='height' className='info'>
       <div>Height</div>
       <div className='info-title'>{`${pokemon?.height?.toString().charAt(0)}.${pokemon?.height?.toString().charAt(1)} metres`}</div>
     </div>)
   }
 
-  cardFooter.push(<div key='color'>
+  cardFooter.push(<div key='color' className='info'>
     <div>Color</div>
     <div style = {{fontWeight : "bold"}}>{getPokemonName(pokemonSpecies?.color)}</div>
   </div>)
 
-  cardFooter.push(<div key='hebitat'>
+  cardFooter.push(<div key='hebitat' className='info'>
     <div>Habitat</div>
     <div className='info-title'>{getPokemonName(pokemonSpecies?.habitat)}</div>
   </div>)
 
-  cardFooter.push(<div key='shape'>
+  cardFooter.push(<div key='shape' className='info'>
     <div>Shape</div>
     <div className='info-title'>{getPokemonName(pokemonSpecies?.shape)}</div>
   </div>)
