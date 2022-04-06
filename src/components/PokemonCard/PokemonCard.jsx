@@ -32,20 +32,42 @@ function getPokemonInfos(pokemon, pokemonSpecies) {
     </div>)
   }
 
-  cardFooter.push(<div key='color' className='info'>
-    <div>Color</div>
-    <div style = {{fontWeight : "bold"}}>{getPokemonName(pokemonSpecies?.color)}</div>
-  </div>)
+  if (!pokemonSpecies?.color) {
+    cardFooter.push(<div key='color' className='info'>
+      <div>Color</div>
+      <div style = {{fontWeight : "bold"}}>{`???`}</div>
+    </div>)
+  } else {
+    cardFooter.push(<div key='color' className='info'>
+      <div>Color</div>
+      <div style = {{fontWeight : "bold"}}>{getPokemonName(pokemonSpecies?.color)}</div>
+    </div>)
+  }
 
-  cardFooter.push(<div key='hebitat' className='info'>
-    <div>Habitat</div>
-    <div className='info-title'>{getPokemonName(pokemonSpecies?.habitat)}</div>
-  </div>)
+  if (!pokemonSpecies?.habitat) {
+    cardFooter.push(<div key='hebitat' className='info'>
+      <div>Habitat</div>
+      <div className='info-title'>{`???`}</div>
+    </div>)
+  } else {
+    cardFooter.push(<div key='hebitat' className='info'>
+      <div>Habitat</div>
+      <div className='info-title'>{getPokemonName(pokemonSpecies?.habitat)}</div>
+    </div>)
+  }
 
-  cardFooter.push(<div key='shape' className='info'>
-    <div>Shape</div>
-    <div className='info-title'>{getPokemonName(pokemonSpecies?.shape)}</div>
-  </div>)
+  if (!pokemonSpecies?.shape) {
+    cardFooter.push(<div key='shape' className='info'>
+      <div>Shape</div>
+      <div className='info-title'>{`???`}</div>
+    </div>)
+  } else {
+    cardFooter.push(<div key='shape' className='info'>
+      <div>Shape</div>
+      <div className='info-title'>{getPokemonName(pokemonSpecies?.shape)}</div>
+    </div>)
+  }
+
 
   return cardFooter 
 }

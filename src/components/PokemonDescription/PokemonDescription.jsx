@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { getPokemonName, getLoading } from '../../resources/HelpingFunctions';
 
@@ -12,7 +13,7 @@ function getStatBar(number) {
     number += "px";
 
     return (
-        <div className="bar" style={{width: number, backgroundColor: color}}/>
+        <div className='bar' style={{width: number, backgroundColor: color}}/>
     )
 }
 
@@ -22,24 +23,28 @@ function Stats({ values, color }) {
     for(let i = 0; i < values?.length; i++) {
         stats.push(<div className='naming' key={i+1}>{ getPokemonName(values?.[i]?.stat) }</div>);
 
-        stats.push(<div className="bars" key={(i+1)*10}>{ getStatBar(values?.[i]?.base_stat) }</div>);
+        stats.push(<div className='bars' key={(i+1)*10}>{ getStatBar(values?.[i]?.base_stat) }</div>);
 
-        stats.push(<div className="numbers" key={(i+1)*100}>{ values?.[i]?.base_stat }</div>);
+        stats.push(<div className='numbers' key={(i+1)*100}>{ values?.[i]?.base_stat }</div>);
     }
 
     return (
-        <div style={{backgroundColor: color}} className="stats">
+        <div style={{backgroundColor: color}} className='stats'>
         { stats }
         </div>
     )
 }
   
 function PokemonDescription({ pokemon, pokemonSpecies, color, isLoadingPokemons, isLoadingSpecies }) {
-    const [descriptionText, setDescriptionText] = useState(String(pokemonSpecies?.flavor_text_entries?.[0]?.flavor_text))
+    const [descriptionText, setDescriptionText] = useState('')
 
     const handleSelect = (e) => {
         setDescriptionText(e.target.value)
     }
+
+    useEffect(() => {
+        setDescriptionText(String(pokemonSpecies?.flavor_text_entries?.[0]?.flavor_text))
+    }, [pokemonSpecies])
 
     return (isLoadingPokemons || isLoadingSpecies) ? (
         getLoading()
