@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getPokemonName } from '../../resources/HelpingFunctions';
+import { getPokemonName, getLoading } from '../../resources/HelpingFunctions';
 
 import './PokemonDescription.css';
 
@@ -34,14 +34,16 @@ function Stats({ values, color }) {
     )
 }
   
-function PokemonDescription({ pokemon, pokemonSpecies, color }) {
+function PokemonDescription({ pokemon, pokemonSpecies, color, isLoadingPokemons, isLoadingSpecies }) {
     const [descriptionText, setDescriptionText] = useState(String(pokemonSpecies?.flavor_text_entries?.[0]?.flavor_text))
 
     const handleSelect = (e) => {
         setDescriptionText(e.target.value)
     }
 
-    return (
+    return (isLoadingPokemons || isLoadingSpecies) ? (
+        getLoading()
+      ) : (
         <div className="pokemon-description">
             <div className="title-game">
                 <div className="title">

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Prop from '../Prop/Prop';
-import {getPokemonName, getPokemonId} from '../../resources/HelpingFunctions.js'
+import {getPokemonName, getPokemonId, getLoading} from '../../resources/HelpingFunctions.js'
 
 import './PokemonCard.css';
 
@@ -50,14 +50,16 @@ function getPokemonInfos(pokemon, pokemonSpecies) {
   return cardFooter 
 }
 
-function PokemonCard({ pokemon, pokemonSpecies, color }) {  
+function PokemonCard({ pokemon, pokemonSpecies, color, isLoadingPokemons, isLoadingSpecies }) {  
 
   let cardProps = []
   for (let i = 0; i < pokemon?.types?.length; i++) {
     cardProps.push(<Prop pokemon = {pokemon} number = {i} key={i}/>)
   }
 
-  return (
+  return (isLoadingPokemons || isLoadingSpecies) ? (
+    getLoading()
+  ) : (
     <div style = {{backgroundColor: color}} className = "pokemon-card">
       <div className = "header">
         <div>
@@ -78,7 +80,7 @@ function PokemonCard({ pokemon, pokemonSpecies, color }) {
         { getPokemonInfos(pokemon, pokemonSpecies) }
       </div>
     </div>
-  );
+  )
 }
 
 export default PokemonCard;

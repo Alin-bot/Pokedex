@@ -1,6 +1,8 @@
+import { getLoading } from '../../resources/HelpingFunctions.js';
+
 import './PokemonSprites.css'
 
-function PokemonSprites({ pokemon, color }) {
+function PokemonSprites({ pokemon, color, isLoadingPokemons, isLoadingSpecies }) {
 
     let sprites = [];
     for (let key in pokemon?.sprites) {
@@ -21,7 +23,9 @@ function PokemonSprites({ pokemon, color }) {
         }
     }
 
-    return (
+    return (isLoadingPokemons || isLoadingSpecies) ? (
+        getLoading()
+      ) : (
         <div style = {{backgroundColor: color}} className = "pokemon-sprites">{
             sprites 
         }</div>

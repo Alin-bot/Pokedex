@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import {getPokemonName, getPokemonId} from '../../resources/HelpingFunctions.js';
+import {getPokemonName, getPokemonId, getLoading} from '../../resources/HelpingFunctions.js';
 import Prop from '../Prop';
 
 import './PokemonEvolutions.css'
@@ -68,7 +68,7 @@ function getEvolutions(pokemonName, evolves_to, color) {
     return evolutions;
 }
 
-function PokemonEvolutions({ pokemonSpecies, color}) {
+function PokemonEvolutions({ pokemonSpecies, color, isLoadingPokemons, isLoadingSpecies }) {
     const [chain, setChain] = useState({});
 
     const evolutionUrl = pokemonSpecies?.evolution_chain?.url;
@@ -84,7 +84,9 @@ function PokemonEvolutions({ pokemonSpecies, color}) {
             })
     }, [evolutionUrl]);
     
-    return (
+    return (isLoadingPokemons || isLoadingSpecies) ? (
+        getLoading()
+      ) : (
         <div className='evolutions'>
             { getEvolutions(chain?.species?.name, chain?.evolves_to, color) }
         </div>

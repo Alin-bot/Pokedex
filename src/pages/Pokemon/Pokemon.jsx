@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import ErrorPage from '../ErrorPage';
 import Title from '../../components/Title';
-import PokemonCard from '../../components/PokemonCard';
 import PokemonSprites from '../../components/PokemonSprites';
 import PokemonDescription from '../../components/PokemonDescription';
 import PokemonEvolutions from '../../components/PokemonEvolutions';
@@ -12,9 +11,13 @@ import { getColor } from '../../resources/Color.js';
 
 import './Pokemon.css';
 
+const PokemonCard = lazy(() => import('../../components/PokemonCard'));
+
 function Pokemon() {
-  const [pokemon, setPokemon] = useState({})
-  const [pokemonSpecies, setPokemonSpecies] = useState({})
+  const [pokemon, setPokemon] = useState({});
+  const [pokemonSpecies, setPokemonSpecies] = useState({});
+  const [isLoadingPokemons, setLoadingPokemons] = useState(true);
+  const [isLoadingSpecies, setLoadingSpecies] = useState(true)
   const { id } = useParams(); 
 
   const speciesUrl = pokemon?.species?.url;
@@ -24,6 +27,7 @@ function Pokemon() {
       .get(`${speciesUrl}`)
       .then(response => {
         setPokemonSpecies(response.data);
+        setLoadingSpecies(false)
       })
       .catch(error => {
         console.log(error);
@@ -35,6 +39,7 @@ function Pokemon() {
       .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then(response => {
         setPokemon(response.data);
+        setLoadingPokemons(false)
       })
       .catch(error => {
         console.log(error);
@@ -48,24 +53,26 @@ function Pokemon() {
   const color = getColor(pokemon?.types?.[0]?.type?.name);
 
   return (
-    <div className = "pokemon">
-      <div className = "cards">
-        <Title>Pokedex</Title>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className = "pokemon">
+        <div className = "cards">
+          <Title>Pokedex</Title>
 
-        <div className = "pokemon-header">
-          <PokemonCard pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>
+          <div className = "pokemon-header">
+            <PokemonCard pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color} isLoadingPokemons={isLoadingPokemons} isLoadingSpecies={isLoadingSpecies}/>
 
-          <PokemonDescription pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color}/>
+            <PokemonDescription pokemon = {pokemon} pokemonSpecies = {pokemonSpecies} color = {color} isLoadingPokemons={isLoadingPokemons} isLoadingSpecies={isLoadingSpecies}/>
+          </div>
+
+
+          <div className="card-title">Evolutions</div>
+          <PokemonEvolutions pokemonSpecies = {pokemonSpecies} id = {id} color = {color} isLoadingPokemons={isLoadingPokemons} isLoadingSpecies={isLoadingSpecies}/>
+
+          <div className="card-title">Sprites</div>
+          <PokemonSprites pokemon = {pokemon} color = {color} isLoadingPokemons={isLoadingPokemons} isLoadingSpecies={isLoadingSpecies}/>
         </div>
-
-
-        <div className="card-title">Evolutions</div>
-        <PokemonEvolutions pokemonSpecies = {pokemonSpecies} id = {id} color = {color}/>
-
-        <div className="card-title">Sprites</div>
-        <PokemonSprites pokemon = {pokemon} color = {color}/>
       </div>
-    </div>
+    </Suspense>
   );
 }
 
