@@ -2,7 +2,7 @@
 
 Site url: https://pink-pika-36bbe0.netlify.app/
 
-A React project which uses JS, HTML and CSS, that simulates a Pokedex like app.
+A React project which uses JS, HTML and SCSS, that simulates a Pokedex like app.
 
 This is my first React project, which sowed me the beauty of this framework.
 
