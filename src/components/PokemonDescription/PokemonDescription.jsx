@@ -43,7 +43,7 @@ function PokemonDescription({ pokemon, pokemonSpecies, color, isLoadingPokemons,
     }
 
     useEffect(() => {
-        setDescriptionText(String(pokemonSpecies?.flavor_text_entries?.[0]?.flavor_text))
+        setDescriptionText(String(pokemonSpecies?.flavor_text_entries?.filter(text => text?.language?.name.toString() === "en")?.[0]?.flavor_text))
     }, [pokemonSpecies])
 
     return (isLoadingPokemons || isLoadingSpecies) ? (
