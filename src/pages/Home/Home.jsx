@@ -9,24 +9,24 @@ import './Home.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 
-function PageButtons({ setOffset, setPokemonsNumber}) {
+function PageButtons({ setOffset, setPokemonsNumber, pokemonNumber}) {
   return (
     <div className='page-buttons'>
-      <button className='button' onClick={() => setOffset(prev => prev - 30)}>
+      {/* <button className='button' onClick={() => setOffset(prev => prev - pokemonNumber)}>
         {`<-- previous-page`}
-      </button>
+      </button> */}
       <button className='button' onClick={() => setPokemonsNumber(prev => prev + 30)}>
         {`load more`}
       </button>
-      <button className='button' onClick={() => setOffset(prev => prev + 30)}>
+      {/* <button className='button' onClick={() => setOffset(prev => prev + pokemonNumber)}>
         {`next-page -->`}
-      </button>
+      </button> */}
     </div>
   )
 }
 
 function Home() {
-  const { pokemonData, setPokemonsNumber, setOffset } = React.useContext(DataContext);
+  const { pokemonData, setPokemonsNumber, setOffset, pokemonNumber } = React.useContext(DataContext);
   const [clientInput, setClientInput] = useState('');
   const [pokemonsAfterFetching, setPokemonsAfterFetching] = useState([]);
   
@@ -34,21 +34,23 @@ function Home() {
     return str.toUpperCase().includes(clientInput.toUpperCase());
   }
 
-  function DisplayPokemonList() {
+  function DisplayPokemonList(pokemonData) {
     useEffect(() => {
       Promise
-        .all(pokemonData?.map(pokemon => axios.get(`${pokemon.url}`)))
+        .all(pokemonData?.map(pokemon => axios.get(`${pokemon?.url}`)))
         .then(response => setPokemonsAfterFetching(response))
-    }, []);
+        .catch(error => console.log(error))
+    }, [pokemonData]);
 
     return (
       <div className = "cards">{
-        pokemonsAfterFetching?.filter(pokemon =>
+        pokemonsAfterFetching
+          ?.filter(pokemon =>
             isIncludedInClientInput(pokemon?.data?.name) ||
             isIncludedInClientInput(pokemon?.data?.types?.[0]?.type?.name) ||
             isIncludedInClientInput(String(pokemon?.data?.id)) ||
             (pokemon?.types?.length === 2 && isIncludedInClientInput(pokemon?.data?.types?.[1]?.type?.name)))
-          .map(pokemon => <Card pokemon = {pokemon?.data} id = {pokemon?.data?.id} key={pokemon?.data?.id}/>)
+          ?.map(pokemon => <Card pokemon = {pokemon?.data} id = {pokemon?.data?.id} key={pokemon?.data?.id}/>)
       }</div>
     );
   }
@@ -59,9 +61,9 @@ function Home() {
 
       <SearchBar value={clientInput} setValue={setClientInput}/>
       
-      {DisplayPokemonList()}
+      {DisplayPokemonList(pokemonData)}
 
-      <PageButtons setOffset={setOffset} setPokemonsNumber={setPokemonsNumber}/>
+      <PageButtons setOffset={setOffset} setPokemonsNumber={setPokemonsNumber} pokemonNumber={pokemonNumber}/>
     </div>
   );
 }

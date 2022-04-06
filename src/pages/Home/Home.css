@@ -24,25 +24,12 @@
 
 .app .page-buttons {
   margin-top: 30px;
-  margin-left: 208px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  margin-left: 440px;
 }
 
 @media (max-width: 1200px) {
   .app .page-buttons {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
     height: 150px;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     margin-left: 100px;
   }
 }

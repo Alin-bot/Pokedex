@@ -14,21 +14,14 @@ export const DataProvider = ({ children }) => {
         axios
         .get(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonsNumber}&offset=${offset}`)
         .then(response => {
-            console.log(offset);
+            console.log(pokemonsNumber);
             setPokemonData(response.data.results);
         })
-        .catch(error => {
-            console.log(error);
-        })
+        .catch(error => console.log(error))
     }, [pokemonsNumber, offset])
 
-    useEffect(() => {
-        console.log(pokemonData);
-    }, [pokemonData])
-
-    
     return (
-        <DataContext.Provider value={{ pokemonData, setPokemonsNumber, setOffset }}>
+        <DataContext.Provider value={{ pokemonData, setPokemonsNumber, setOffset, pokemonsNumber }}>
             { children }
         </DataContext.Provider>
     );

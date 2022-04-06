@@ -18,15 +18,10 @@
 
   .page-buttons {
     margin-top: 30px;
-    margin-left: 208px;
-
-    display: flex;
+    margin-left: 440px;
 
     @media (max-width: $max-screen) {
-      display: flex;
-      flex-direction: column;
       height: 150px;
-      justify-content: space-between;
       margin-left: 100px;
     }
 
