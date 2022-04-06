@@ -70,12 +70,21 @@
 @media (max-width: 1200px) {
   .pokemon-description .stats {
     padding: 10px;
-    -ms-grid-columns: 100px 300px 20px;
-        grid-template-columns: 100px 300px 20px;
-    -ms-grid-rows: (40px)[6];
-        grid-template-rows: repeat(6, 40px);
-    height: 230px;
-    width: 420px;
+    -ms-grid-columns: 280px 20px;
+        grid-template-columns: 280px 20px;
+    -ms-grid-rows: (30px)[12];
+        grid-template-rows: repeat(12, 30px);
+    height: 350px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .pokemon-description .stats .naming {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    -ms-grid-column-span: 2;
+        grid-column-end: span 2;
   }
 }
 
@@ -85,13 +94,27 @@
       align-self: center;
 }
 
+@media (max-width: 1200px) {
+  .pokemon-description .stats .bars {
+    margin-bottom: 30px;
+  }
+}
+
 .pokemon-description .stats .bars .bar {
   border-radius: 10px;
   height: 8px;
 }
 
 .pokemon-description .stats .numbers {
-  -ms-grid-column-align: end;
-      justify-self: end;
+  justify-self: flex-end;
+}
+
+@media (max-width: 1200px) {
+  .pokemon-description .stats .numbers {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    padding-bottom: 65px;
+  }
 }
 /*# sourceMappingURL=PokemonDescription.css.map */

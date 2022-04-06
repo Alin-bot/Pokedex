@@ -47,14 +47,25 @@
 
         @media (max-width: $max-screen) {
             padding: 10px;
-            grid-template-columns: 100px 300px 20px;
-            grid-template-rows: repeat(6, 40px);
-            height: 230px;
-            width: 420px;
+            grid-template-columns: 280px 20px;
+            grid-template-rows: repeat(12, 30px);
+            height: 350px;
+            width: 300px;
+        }
+
+        .naming {
+            @media (max-width: $max-screen) {
+                grid-column-start: 1;
+                grid-column-end: span 2;
+            }
         }
 
         .bars {
             align-self: center;
+
+            @media (max-width: $max-screen) {
+                margin-bottom: 30px;
+            }
 
             .bar {
                 border-radius: 10px;
@@ -63,7 +74,12 @@
         }
 
         .numbers {
-            justify-self: end;
+            justify-self: flex-end;
+
+            @media (max-width: $max-screen) {
+                align-self: center;
+                padding-bottom: 65px;
+            }
         }
     }
 }

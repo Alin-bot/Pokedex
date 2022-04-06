@@ -20,7 +20,7 @@ function Stats({ values, color }) {
 
     let stats = [];
     for(let i = 0; i < values?.length; i++) {
-        stats.push(<div key={i+1}>{ getPokemonName(values?.[i]?.stat) }</div>);
+        stats.push(<div className='naming' key={i+1}>{ getPokemonName(values?.[i]?.stat) }</div>);
 
         stats.push(<div className="bars" key={(i+1)*10}>{ getStatBar(values?.[i]?.base_stat) }</div>);
 

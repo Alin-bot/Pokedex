@@ -10,17 +10,23 @@
     width: 500px;
 
     @media (max-width: $max-screen) {
-        width: 400px;
+        width: 300px;
     }
 
     .header {
         display: flex;
         justify-content: space-between;
 
+        @media (max-width: $max-screen) {
+            flex-direction: column;
+            height: 100px;
+        }
+
         .name {
             font-size: 25px;
             font-weight: bold;
         }
+
         .props {
             display: flex;
             justify-content: space-around;
@@ -31,7 +37,6 @@
     }
 
     .img-container {
-        width: 400px;
         height: auto;
         
         .img {
@@ -41,7 +46,8 @@
             margin-left: 50px;
 
             @media (max-width: $max-screen) {
-                width: 300px;
+                width: 250px;
+                margin-left: 20px;
             }
         }
     }
