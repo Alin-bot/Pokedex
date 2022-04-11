@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Prop from '../Prop/Prop';
-import {getPokemonName, getPokemonId, getLoading} from '../../resources/HelpingFunctions.js'
+import {getPokemonName, getPokemonId, getLoading} from '../../helpers/HelpingFunctions.js'
 
 import './PokemonCard.css';
 

@@ -14,7 +14,6 @@ export const DataProvider = ({ children }) => {
         axios
         .get(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonsNumber}&offset=${offset}`)
         .then(response => {
-            console.log(pokemonsNumber);
             setPokemonData(response.data.results);
         })
         .catch(error => console.log(error))

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import {getPokemonName, getPokemonId, getLoading} from '../../resources/HelpingFunctions.js';
+import {getPokemonName, getPokemonId, getLoading} from '../../helpers/HelpingFunctions.js';
 import Prop from '../Prop';
 
 import './PokemonEvolutions.css'

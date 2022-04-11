@@ -1,4 +1,4 @@
-import { getLoading } from '../../resources/HelpingFunctions.js';
+import { getLoading } from '../../helpers/HelpingFunctions.js';
 
 import './PokemonSprites.css'
 

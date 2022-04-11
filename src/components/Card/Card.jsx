@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 
 import { getColor } from '../../resources/Color.js'
-import { getPokemonName, getPokemonId } from '../../resources/HelpingFunctions.js'
+import { getPokemonName, getPokemonId } from '../../helpers/HelpingFunctions.js'
 import Prop from '../Prop'
 
 import './Card.css';

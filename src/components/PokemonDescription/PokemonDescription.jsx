@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { getPokemonName, getLoading } from '../../resources/HelpingFunctions';
+import { getPokemonName, getLoading } from '../../helpers/HelpingFunctions';
 
 import './PokemonDescription.css';
 

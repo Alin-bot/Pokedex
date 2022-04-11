@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 import Title from '../../components/Title';
 import SearchBar from '../../components/SearchBar';
@@ -6,52 +8,48 @@ import Card from '../../components/Card';
 import DataContext from '../../components/DataProvider/'
 
 import './Home.css';
-import axios from 'axios';
-import { useEffect } from 'react';
-
-function PageButtons({ setOffset, setPokemonsNumber, pokemonNumber}) {
-  return (
-    <div className='page-buttons'>
-      {/* <button className='button' onClick={() => setOffset(prev => prev - pokemonNumber)}>
-        {`<-- previous-page`}
-      </button> */}
-      <button className='button' onClick={() => setPokemonsNumber(prev => prev + 30)}>
-        {`load more`}
-      </button>
-      {/* <button className='button' onClick={() => setOffset(prev => prev + pokemonNumber)}>
-        {`next-page -->`}
-      </button> */}
-    </div>
-  )
-}
+import useFetch from '../../helpers/useFetch'
 
 function Home() {
-  const { pokemonData, setPokemonsNumber, setOffset, pokemonNumber } = React.useContext(DataContext);
+//  const { pokemonData, setPokemonsNumber, setOffset, pokemonNumber } = React.useContext(DataContext);
   const [clientInput, setClientInput] = useState('');
-  const [pokemonsAfterFetching, setPokemonsAfterFetching] = useState([]);
+  const [pokemons, setPokemons] = useState([]);
+  const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=0`)
+  const { loading, data } = useFetch(url);
   
-  function isIncludedInClientInput(str) {
-    return str.toUpperCase().includes(clientInput.toUpperCase());
-  }
+  const observer = useRef()
+  const lastPokemonRef = useCallback(node => {
+    if (loading) return
+    if (observer.current) observer.current.disconnect()
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        // go to next
+      }
+    })
+    if (node) observer.current.observe(node)
+  }, [loading, data])
 
-  function DisplayPokemonList(pokemonData) {
+  // function isIncludedInClientInput(str) {
+  //   return str.toUpperCase().includes(clientInput.toUpperCase());
+  // }
+
+  function DisplayPokemonList(data) {
     useEffect(() => {
       Promise
-        .all(pokemonData?.map(pokemon => axios.get(`${pokemon?.url}`)))
-        .then(response => setPokemonsAfterFetching(response))
+        .all(data?.results?.map(pokemon => axios.get(`${pokemon?.url}`)))
+        .then(response => setPokemons(response))
         .catch(error => console.log(error))
-    }, [pokemonData]);
+    }, [data]);
 
+    console.log(pokemons)
     return (
       <div className = "cards">{
-        pokemonsAfterFetching
-          ?.filter(pokemon =>
-            isIncludedInClientInput(pokemon?.data?.name) ||
-            isIncludedInClientInput(pokemon?.data?.types?.[0]?.type?.name) ||
-            isIncludedInClientInput(String(pokemon?.data?.id)) ||
-            (pokemon?.types?.length === 2 && isIncludedInClientInput(pokemon?.data?.types?.[1]?.type?.name)))
-          ?.map(pokemon => <Card pokemon = {pokemon?.data} id = {pokemon?.data?.id} key={pokemon?.data?.id}/>)
-      }</div>
+        pokemons
+          ?.map((pokemon, index) => {
+            return <Card pokemon = {pokemon?.data} id = {pokemon?.data?.id} key={pokemon?.data?.id}/>
+          })
+      }<div ref={lastPokemonRef}></div>
+      </div>
     );
   }
 
@@ -61,9 +59,8 @@ function Home() {
 
       <SearchBar value={clientInput} setValue={setClientInput}/>
       
-      {DisplayPokemonList(pokemonData)}
+      {DisplayPokemonList(data)}
 
-      <PageButtons setOffset={setOffset} setPokemonsNumber={setPokemonsNumber} pokemonNumber={pokemonNumber}/>
     </div>
   );
 }
